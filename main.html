@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
 </head>
 
@@ -15,55 +15,75 @@
     <main>
         <div class="grid">
             <div class="options">
-                <h1>options</h1>
-                <h2>Colour</h2>
-                <input class="tick-grad" type="checkbox" name="" id="">
-                <input class="box-colour" type="color" name="" id="">
-                <input class="box-colour-2 box-hide" type="color" name="" id="">
-                <input class="grad-deg" type="number" min="0" max="360" value="0">
-                <input class="linear-1" type="range" min="1" max="100">
-                <input class="linear-2" type="range" min="1" max="100">
-                <h2>border</h2>
-                <label for="">border-radius</label>
-                <input class="slider-number" type="number" name="" id="">
-                <input class="slider" type="range" value="0" min="1" max="100">
+                <div class="options-container">
+                    <h2>Colour</h2>
+                    <div class="options-container-grid grid-colour">
+                        <label class="tick-grad-label" for=""><input class="tick-grad" type="checkbox" name="" id="">
+                            Gradient</label>
+                        <input class="box-colour" type="color" name="" id="">
+                        <input class="box-colour-2 box-hide" type="color" name="" id="">
+                        <label class="grad-deg-label box-hide" for=""><input class="grad-deg " type="number" min="0"
+                                max="360" value="0"> Degree (0 - 360)</label>
+                        <input class="linear-1 box-hide" type="range" min="1" max="100">
+                        <input class="linear-2 box-hide" type="range" min="1" max="100">
+                    </div>
+                </div>
 
-                <label for="">border</label>
-                <input class="border-number" type="number" name="" value="0">
-                <input class="border-slider" type="range" value="0" min="0" max="100">
-                <label for="">Solid<input class="border-type" type="radio" checked name="border-type" id=""
-                        value="solid"></label>
-                <label for="">Dashed<input class="border-type" type="radio" name="border-type" id=""
-                        value="dashed"></label>
-                <label for="">Dotted<input class="border-type" type="radio" name="border-type" id=""
-                        value="dotted"></label>
-                <label for="">Double<input class="border-type" type="radio" name="border-type" id=""
-                        value="double"></label>
-                <input class="border-colour" type="color" name="" id="">
+                <div class="options-container">
+                    <h2>Border</h2>
+                    <div class="options-container-grid grid-border">
+                        <label for="" class="slider-number-label"><input class="slider-number" type="number" name=""
+                                id=""> border-radius</label>
+                        <input class="slider" type="range" value="0" min="1" max="100">
 
-                <h2>box-shadow</h2>
-                <label for=""> Offset-X
-                    <input class="shadow-x" type="range" value="0" min="-100" max="100"></label>
-                <label for=""> Offset-Y
-                    <input class="shadow-y" type="range" value="0" min="-100" max="100"></label>
-                <label for=""> Blur
-                    <input class="shadow-blur" type="range" value="0" min="0" max="100"></label>
-                <label for=""> Spread
-                    <input class="shadow-spread" type="range" value="0" min="-100" max="100"></label>
-                <label for=""> Colour
-                    <input class="shadow-colour" type="color" value="#efefef"></label>
+                        <label for="" class="border-number-label">
+                            <input class="border-number" type="number" name="" value="0"> Border size</label>
+                        <input class="border-slider" type="range" value="0" min="0" max="100">
+                        <div class="border-radio">
+                            <label for=""><input class="border-type" type="radio" checked name="border-type" id=""
+                                    value="solid"> Solid</label>
+                            <label for=""><input class="border-type" type="radio" name="border-type" id=""
+                                    value="dashed"> Dashed</label>
+                            <label for=""><input class="border-type" type="radio" name="border-type" id=""
+                                    value="dotted"> Dotted</label>
+                            <label for=""><input class="border-type" type="radio" name="border-type" id=""
+                                    value="double"> Double</label>
+                        </div>
+                        <label class="border-colour-label" for=""><input class="border-colour" type="color" name=""
+                                id=""> Border colour</label>
+                    </div>
+                </div>
+
+                <div class="options-container">
+                    <h2>Box-shadow</h2>
+                    <div class="options-container-grid grid-shadow">
+                        <label for="" class="shadow-x-label">
+                            <input class="shadow-x" type="range" value="0" min="-100" max="100"> Offset-X</label>
+                        <label for="" class="shadow-y-label">
+                            <input class="shadow-y" type="range" value="0" min="-100" max="100"> Offset-Y</label>
+                        <label for="" class="shadow-blur-label">
+                            <input class="shadow-blur" type="range" value="0" min="0" max="100"> Blur</label>
+                        <label for="" class="shadow-spread-label">
+                            <input class="shadow-spread" type="range" value="0" min="-100" max="100"> Spread</label>
+                        <label for="" class="shadow-colour-label">
+                            <input class="shadow-colour" type="color" value="#efefef"> Colour</label>
+                    </div>
+                </div>
             </div>
             <div class="action">
                 <div class="box"></div>
             </div>
             <div class="css-code">
+                <button class="paste">Copy</button>
                 <div class="css-code-block">
-                    <p class="line">border-radius: 0px</p>
+                    <p class="line"></p>
+
+
                 </div>
             </div>
         </div>
     </main>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
