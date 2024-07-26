@@ -1,3 +1,7 @@
+
+let cssName = document.querySelector(".css-name")
+let nameId = document.querySelector("#name-id")
+let nameClass = document.querySelector("#name-class")
 let slider = document.querySelector(".slider")
 let sliderNum = document.querySelector(".slider-number")
 let box = document.querySelector(".box")
@@ -24,6 +28,28 @@ let est = document.querySelector(".paste")
 
 
 
+cssName.addEventListener("input", (e) => {
+    let name = ""
+    if(e.target.id === "css-name")
+    {
+        name = e.target.value
+    }
+    if(name !== "")
+    {
+        name = name.replaceAll(" ", "-")
+        if(nameClass.checked)
+        {
+            setPrint[0] = "." + name + "{"
+        }
+        if(nameId.checked)
+        {
+            setPrint[0] = "#" + name + "{"
+        }
+        
+        print(setPrint)
+    }
+})
+
 gradColour.addEventListener("change", (e) => {
     if(boxColour2.classList.contains("box-hide"))
     {
@@ -49,25 +75,31 @@ boxColour.addEventListener("input", (e) => {
     else
     {
         box.style.background = e.target.value
+        setPrint[1] = `background: ${e.target.value}`
     }
+    print(setPrint)
 })
 
 boxColour2.addEventListener("input", (e) => {
     test(boxColour.value, linear1.value, e.target.value, linear2.value,gradDeg.value)
+    print(setPrint)
 })
 
-gradDeg.addEventListener("change", (e) => {
+gradDeg.addEventListener("input", (e) => {
     test(boxColour.value, linear1.value, boxColour2.value, linear2.value, e.target.value)
+    print(setPrint)
 })
 
 linear1.addEventListener("input", (e) => {
     //linear2.value = 100 - e.target.value
     test(boxColour.value, e.target.value, boxColour2.value, linear2.value,gradDeg.value)
+    print(setPrint)
 })
 
 linear2.addEventListener("input", (e) => {
     //linear1.value = 100 - e.target.value
     test(boxColour.value, linear1.value,boxColour2.value, e.target.value,gradDeg.value)
+    print(setPrint)
 })
 
 slider.addEventListener("input", (e) => {
@@ -151,9 +183,14 @@ function print(codelines)
 {
     let fragment = document.createDocumentFragment()
     let text = ""
-    codelines.map((code) => {
-        if(code !== null){
+    codelines.map((code,index) => {
+        if(index === 0 || index === 5)
+        {
             text +=  code + " \n"
+            return
+        }
+        if(code !== null){
+            text +=  " \t" + code + " \n"
             return
         }
     })
