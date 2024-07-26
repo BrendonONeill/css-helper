@@ -117,7 +117,7 @@ header {
 
 
 .grid-border {
-    grid-template-rows: repeat(6, 30px);
+    grid-template-rows: repeat(6, 34px);
     grid-template-columns: repeat(4, 1fr);
     background-color: white;
     padding-inline: 1rem;
