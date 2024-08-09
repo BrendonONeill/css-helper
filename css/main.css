@@ -9,35 +9,76 @@
     box-sizing: border-box;
 }
 
+:root {
+    --dark-main: #003459;
+    --main: #306F9C;
+    --grey-main: #5F839E;
+}
+
 body {
     font-family: "Oswald", sans-serif;
 }
 
 header {
-    background-color: #003459;
+    background-color: var(--dark-main);
     color: white;
-    padding: 1.6rem 1rem;
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 1rem;
+}
+
+.burger-icon {
+    width: 40px;
 }
 
 
 .grid {
+    position: relative;
     display: grid;
-    background-color: burlywood;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 3fr 1fr;
     height: 89dvh;
 }
 
 
 .options {
-    background-color: #023e7d;
-    padding: 1rem;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: -400px;
+    background-color: var(--main);
     display: flex;
     flex-direction: column;
-    grid-row: 1/3;
     overflow-y: scroll;
     overflow-x: hidden;
+    transition: all 0.4s linear;
 }
+
+.options-header {
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.options-header button {
+    background-color: var(--dark-main);
+    border-radius: 5px;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid white;
+}
+
+.close {
+    width: 25px;
+}
+
+.active {
+    left: 0;
+}
+
 
 .options-container {
 
@@ -46,7 +87,7 @@ header {
 }
 
 .options-container h2 {
-    background-color: #003459;
+    background-color: var(--dark-main);
     color: white;
     border-radius: 5px 5px 0 0;
     padding: 1rem;
@@ -91,7 +132,7 @@ header {
 .grad-deg {
     width: 40px;
     text-align: center;
-    border: 2px solid #023e7d;
+    border: 2px solid var(--dark-main);
 }
 
 .grad-deg-label {
@@ -140,7 +181,7 @@ header {
 
 .slider-number {
     width: 40px;
-    border: 2px solid #003459;
+    border: 2px solid var(--dark-main);
 }
 
 .border-number-label {
@@ -154,7 +195,7 @@ header {
 
 .border-number {
     width: 40px;
-    border: 2px solid #003459;
+    border: 2px solid var(--dark-main);
 }
 
 .border-slider {
@@ -228,15 +269,11 @@ header {
 .action {
     position: relative;
     background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .css-code {
-    background-color: #b3bfb8;
+    background-color: var(--grey-main);
     padding: 1rem;
-    grid-column: 2 / 3;
     position: relative;
 }
 
@@ -245,17 +282,26 @@ header {
     padding: 1rem;
     border-radius: 5px;
     height: 100%;
+    width: 100%;
     font-weight: bold;
+    overflow: hidden;
 }
 
 
 .box {
-    background: #0077b6;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background: var(--main);
+    background-repeat: no-repeat;
     width: 200px;
     height: 200px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
+    overflow: hidden;
+    z-index: 2;
 }
 
 
@@ -274,7 +320,7 @@ header {
     bottom: 25px;
     right: 25px;
     background-color: #57cc99;
-    z-index: 10;
+    z-index: 5;
     border-radius: 5px;
     border: 2px solid #10451d;
     cursor: pointer;
@@ -293,7 +339,7 @@ header {
     position: absolute;
     top: 20px;
     left: 20px;
-    background-color: #003459;
+    background-color: var(--dark-main);
     color: white;
     padding: 1rem;
     border-radius: 5px;
@@ -310,6 +356,46 @@ header {
     align-items: center;
     padding: 0.5rem 0;
     gap: 0.5rem;
+}
+
+footer {
+    background-color: var(--dark-main);
+    color: white;
+    padding: 3rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 1rem;
+}
+
+.footer-list {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    list-style: none;
+    flex-basis: 14%;
+}
+
+.footer-list-links {
+    cursor: pointer;
+}
+
+.footer-list-links:hover {
+    color: grey;
+}
+
+.footer-list-links a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0 0.5rem;
+    justify-content: space-evenly;
+}
+
+.footer-list-links img {
+    width: 15px;
 }
 
 
@@ -337,4 +423,47 @@ header {
 ::-webkit-scrollbar-thumb:hover {
     background: #14213d;
     cursor: pointer;
+}
+
+
+@media only screen and (min-width: 900px) {
+
+    .burger {
+        display: none;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        grid-template-rows: 3fr 1fr;
+        height: 89dvh;
+    }
+
+    .css-code {
+        grid-column: 2 / 3;
+    }
+
+    .options {
+        position: relative;
+        left: 0;
+        background-color: var(--main);
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        grid-row: 1/3;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+
+    .options-header {
+        display: none;
+    }
+
+    .footer-list {
+        flex-flow: row;
+        align-items: center;
+    }
+
+
 }

@@ -1,4 +1,7 @@
-
+"use strict"
+let navBurger = document.querySelector(".nav-burger")
+let sidebarClose = document.querySelector(".close")
+let sidebar = document.querySelector(".options")
 let cssName = document.querySelector(".css-name")
 let nameId = document.querySelector("#name-id")
 let nameClass = document.querySelector("#name-class")
@@ -26,7 +29,13 @@ let borderType = "solid"
 let setPrint = ["{", null, null, null, null, "}"]
 let est = document.querySelector(".paste")
 
+navBurger.addEventListener("click", () => { 
+        sidebar.classList.add("active")
+})
 
+sidebarClose.addEventListener("click", (e) => {
+        sidebar.classList.remove("active")  
+})
 
 cssName.addEventListener("input", (e) => {
     let name = ""
@@ -143,6 +152,7 @@ shadowColour.addEventListener("input", (e) => {
 
 
 borderSize.addEventListener("input", (e) => {
+    borderSlider.value = e.target.value
     box.style.border = `${e.target.value}px ${borderType} ${borderColour.value}`
     setPrint[3] = `border: ${e.target.value}px ${borderType} ${borderColour.value}; `
     print(setPrint)

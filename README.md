@@ -9,5 +9,6 @@ This site was created so I generate css faster
 - Animations
 - CSS specificity calculator
 
-## More information
-Only built for laptop screens for now just wanted to deploy a basic version before cleaning up UI and sorting out screen-sized layouts.
+## Known Bugs
+
+- On phones/tablets the UI moves when long text is added to the css block section need to sort out a better way to deal with it on phones/tablets.
