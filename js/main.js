@@ -2,6 +2,8 @@
 let navBurger = document.querySelector(".nav-burger")
 let sidebarClose = document.querySelector(".close")
 let sidebar = document.querySelector(".options")
+let optionsContainers = document.querySelectorAll(".options-container")
+let deleteButtons = document.querySelectorAll(".delete-button")
 let cssName = document.querySelector(".css-name")
 let nameId = document.querySelector("#name-id")
 let nameClass = document.querySelector("#name-class")
@@ -59,6 +61,19 @@ cssName.addEventListener("input", (e) => {
     }
 })
 
+
+optionsContainers.forEach((container) => {
+    let content = container.querySelector("div")
+    let containerHeader = container.querySelector(".options-container-header")
+    let containerButton = container.querySelector(".options-container-button")
+    containerHeader.addEventListener("click", () => {
+        
+        content.classList.toggle("accordion-close")
+        containerHeader.classList.toggle("options-container-h2-closed")
+        containerButton.classList.toggle("button-flip")
+    })
+})
+
 gradColour.addEventListener("change", (e) => {
     if(boxColour2.classList.contains("box-hide"))
     {
@@ -79,7 +94,7 @@ gradColour.addEventListener("change", (e) => {
 boxColour.addEventListener("input", (e) => {
     if(gradColour.checked)
     {
-        test(e.target.value, linear1.value, boxColour2.value, linear2.value,gradDeg.value)
+        backgroundSetter(e.target.value, linear1.value, boxColour2.value, linear2.value,gradDeg.value)
     }
     else
     {
@@ -90,24 +105,22 @@ boxColour.addEventListener("input", (e) => {
 })
 
 boxColour2.addEventListener("input", (e) => {
-    test(boxColour.value, linear1.value, e.target.value, linear2.value,gradDeg.value)
+    backgroundSetter(boxColour.value, linear1.value, e.target.value, linear2.value,gradDeg.value)
     print(setPrint)
 })
 
 gradDeg.addEventListener("input", (e) => {
-    test(boxColour.value, linear1.value, boxColour2.value, linear2.value, e.target.value)
+    backgroundSetter(boxColour.value, linear1.value, boxColour2.value, linear2.value, e.target.value)
     print(setPrint)
 })
 
 linear1.addEventListener("input", (e) => {
-    //linear2.value = 100 - e.target.value
-    test(boxColour.value, e.target.value, boxColour2.value, linear2.value,gradDeg.value)
+    backgroundSetter(boxColour.value, e.target.value, boxColour2.value, linear2.value,gradDeg.value)
     print(setPrint)
 })
 
 linear2.addEventListener("input", (e) => {
-    //linear1.value = 100 - e.target.value
-    test(boxColour.value, linear1.value,boxColour2.value, e.target.value,gradDeg.value)
+    backgroundSetter(boxColour.value, linear1.value,boxColour2.value, e.target.value,gradDeg.value)
     print(setPrint)
 })
 
@@ -182,7 +195,7 @@ borders.forEach((bt) => {
 })
 
 
-function test(a,b,c,d,e)
+function backgroundSetter(a,b,c,d,e)
 {
      box.style.background = `linear-gradient(${e}deg, ${a} ${b}%, ${c} ${d}%)`
      setPrint[1] = `background: linear-gradient(${e}deg, ${a} ${b}%, ${c} ${d}%); `
@@ -222,6 +235,51 @@ est.addEventListener("click", (e) => {
             est.classList.remove("copied");
             est.textContent = "Copy"; 
         }, 2000)
+    })
+})
+
+
+
+deleteButtons.forEach((deleteBT) => {
+    deleteBT.addEventListener("click", () => {
+        let type = deleteBT.getAttribute('data-item')
+        switch(type) {
+            case 'colour':
+                boxColour.value = '#306F9C'
+                gradDeg.value = 0
+                linear1.value = 50
+                linear2.value = 50
+                boxColour2.value = '#ffffff'
+                box.style.background = '';
+                setPrint[1] = null;
+                break;
+            case 'border-radius':
+                box.style.borderRadius = ''
+                slider.value = 0
+                sliderNum.value = 0
+                setPrint[2] = null;
+                break;
+            case 'border':
+                
+                borderSlider.value = 0;
+                borderSize.value = 0;
+                borderColour.value = '#ffffff';
+                box.style.border = '';
+                setPrint[3] = null;
+                break;
+            case 'box-shadow':
+                shadowX.value = 0
+                shadowY.value = 0
+                shadowBlur.value = 0
+                shadowSpread.value = 0
+                shadowColour.value = '#ffffff'
+                box.style.boxShadow = ''
+                setPrint[4] = null;
+                break;
+            default:
+                console.log("Oops that shouldn't happen")
+        }
+        print(setPrint)
     })
 })
 

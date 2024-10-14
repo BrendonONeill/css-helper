@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="This is a site to generate CSS code it is very basic but I plan to add to it with more CSS and animations. This site was created so I generate css faster">
     <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
+    <title>CSS Helper</title>
 </head>
 
 <body>
@@ -28,11 +30,16 @@
                     <button><img class="close" src="assets/x.svg" alt=""></button>
                 </div>
                 <div class="options-container">
-                    <h2>Colour</h2>
+                    <span class="options-container-header">
+                        <h2 class="options-container-h2">Colour</h2>
+                        <button class="options-container-button"></button>
+                    </span>
                     <div class="options-container-grid grid-colour">
+                        <button class="delete-colour-pos delete-button" data-item="colour"><img src="assets/bin.svg"
+                                height="20" width="15" alt=""></button>
                         <label class="tick-grad-label" for=""><input class="tick-grad" type="checkbox" name="" id="">
                             Gradient</label>
-                        <input class="box-colour" type="color" name="" id="">
+                        <input class="box-colour" type="color" value="#306F9C" name="" id="">
                         <input class="box-colour-2 box-hide" type="color" name="" id="">
                         <label class="grad-deg-label box-hide" for=""><input class="grad-deg " type="number" min="0"
                                 max="360" value="0"> Degree (0 - 360)</label>
@@ -42,12 +49,18 @@
                 </div>
 
                 <div class="options-container">
-                    <h2>Border</h2>
+                    <span class="options-container-header">
+                        <h2 class="options-container-h2">Border</h2>
+                        <button class="options-container-button"></button>
+                    </span>
                     <div class="options-container-grid grid-border">
+                        <button class="delete-colour-pos delete-button" data-item="border-radius"><img
+                                src="assets/bin.svg" height="20" width="15" alt=""></button>
                         <label for="" class="slider-number-label"><input class="slider-number" type="number" name=""
                                 id=""> border-radius</label>
                         <input class="slider" type="range" value="0" min="1" max="100">
-
+                        <button class=" delete-button delete-border-pos" data-item="border"><img src="assets/bin.svg"
+                                height="20" width="15" alt=""></button>
                         <label for="" class="border-number-label">
                             <input class="border-number" type="number" name="" value="0"> Border size</label>
                         <input class="border-slider" type="range" value="0" min="0" max="100">
@@ -67,8 +80,13 @@
                 </div>
 
                 <div class="options-container">
-                    <h2>Box-shadow</h2>
+                    <span class="options-container-header">
+                        <h2 class="options-container-h2">Box-Shadow</h2>
+                        <button class="options-container-button"></button>
+                    </span>
                     <div class="options-container-grid grid-shadow">
+                        <button class="delete-colour-pos delete-button" data-item="box-shadow"><img src="assets/bin.svg"
+                                height="20" width="15" alt=""></button>
                         <label for="" class="shadow-x-label">
                             <input class="shadow-x" type="range" value="0" min="-100" max="100"> Offset-X</label>
                         <label for="" class="shadow-y-label">
