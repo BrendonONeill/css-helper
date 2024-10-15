@@ -8,7 +8,10 @@ This site was created so I generate css faster
 - Flex and grid layouts
 - Animations
 - CSS specificity calculator
+- Improving performance 
 
 ## Known Bugs
 
 - On phones/tablets the UI moves when long text is added to the css block section need to sort out a better way to deal with it on phones/tablets.
+
+

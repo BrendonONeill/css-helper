@@ -213,6 +213,31 @@ header {
 
 
 
+.all-padding-container,
+.separate-padding-container {
+    padding: 0.2rem 1rem;
+}
+
+.padding-type-grid {
+    display: flex;
+    gap: 1rem;
+    padding: 0.4rem 1rem;
+}
+
+.all-padding-number,
+.top-padding-number,
+.right-padding-number,
+.bottom-padding-number,
+.left-padding-number {
+    width: 40px;
+    border: 2px solid var(--dark-main);
+}
+
+.separate-padding-options {
+    display: flex;
+    flex-flow: column;
+    padding: 1rem;
+}
 
 .grid-border {
     grid-template-rows: repeat(6, 34px);
@@ -326,6 +351,10 @@ header {
 .action {
     position: relative;
     background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .css-code {
@@ -346,25 +375,35 @@ header {
 
 
 .box {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    background: var(--main);
     background-repeat: no-repeat;
+    background: var(--main);
     width: 200px;
     height: 200px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
     overflow: hidden;
-    z-index: 2;
+}
+
+.inner-box {
+    position: relative;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+}
+
+.colour-inner-box {
+    background-color: black;
 }
 
 
 
 .box-hide {
     display: none;
+}
+
+.box-invisible {
+    visibility: hidden;
 }
 
 .box-show {
@@ -388,7 +427,6 @@ header {
 .copied {
     background-color: #22577a;
     color: white;
-
 }
 
 
