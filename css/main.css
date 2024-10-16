@@ -228,7 +228,11 @@ header {
 .top-padding-number,
 .right-padding-number,
 .bottom-padding-number,
-.left-padding-number {
+.left-padding-number,
+.top-position-number,
+.right-position-number,
+.bottom-position-number,
+.left-position-number {
     width: 40px;
     border: 2px solid var(--dark-main);
 }
@@ -348,6 +352,36 @@ header {
 }
 
 
+.position-type {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.position-type label {
+    flex-basis: 30%;
+}
+
+.position-on {
+    padding: 0.5rem 1rem;
+}
+
+.position-type-grid {
+    padding: 0.5rem 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.position-numbers {
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column;
+}
+
+
 .action {
     position: relative;
     background-color: white;
@@ -438,6 +472,7 @@ header {
     color: white;
     padding: 1rem;
     border-radius: 5px;
+    z-index: 2;
 }
 
 .css-name input {
