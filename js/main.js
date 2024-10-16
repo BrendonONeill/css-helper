@@ -55,8 +55,23 @@ let borderColour = document.querySelector(".border-colour")
 let borders = document.querySelectorAll(".border-type")
 let borderType = "solid"
 
+// Position Container
+let positionCheck = document.querySelector(".position-check")
+let positionTypeContainer = document.querySelector(".position-type-container")
+let positionTypeOptions = document.querySelector(".position-type")
+let positionNumbersContainer = document.querySelector(".position-numbers-container")
+let positionNumbers = document.querySelector(".position-numbers")
+let positionNumbersTypeContainer = document.querySelector(".position-type-grid")
+let topPosition = document.querySelector(".top-position-number")
+let rightPosition = document.querySelector(".right-position-number")
+let bottomPosition = document.querySelector(".bottom-position-number")
+let leftPosition = document.querySelector(".left-position-number")
+let positionType = "static"
+let positionNumbersType = "px"
+
+
 // Code box Container
-let setPrint = ["{", null, null, null, null, null, "}"]
+let setPrint = ["{", null, null, null, null, null, null, null, null, null, null, "}"]
 let est = document.querySelector(".paste")
 
 
@@ -129,6 +144,11 @@ deleteButtons.forEach((deleteBT) => {
                 shadowColour.value = '#ffffff'
                 box.style.boxShadow = ''
                 setPrint[5] = null;
+                break;
+            case 'position':
+                
+                topPosition.value = rightPosition.value = bottomPosition.value = leftPosition.value = "-0"
+                setPrint[6] = setPrint[7] = setPrint[8] = setPrint[9] = setPrint[10] = null;
                 break;
             default:
                 console.log("Oops that shouldn't happen")
@@ -242,7 +262,7 @@ allPadding.addEventListener("input", (e) => {
     }
 })
 
-
+document.g
 function paddingSetter(AP,DP)
 {
     if(!innerBox.classList.contains("colour-inner-box"))
@@ -355,6 +375,75 @@ shadowColour.addEventListener("input", (e) => {
 })
 
 
+// Position Code
+
+positionCheck.addEventListener("click", () => {
+    if(positionCheck.checked)
+    {
+        positionTypeContainer.classList.remove("box-invisible")
+    }
+    else
+    {
+        positionTypeContainer.classList.add("box-invisible")
+    }
+})
+
+positionNumbersTypeContainer.addEventListener("input", (e) => {
+   positionNumbersType = e.target.value
+})
+
+positionNumbers.addEventListener("input", () => {
+    positionSetter([topPosition.value,rightPosition.value,bottomPosition.value,leftPosition.value],positionNumbersType,positionType)
+})
+
+positionTypeOptions.addEventListener("input", (e) => {
+    positionType = e.target.value
+    if(positionType != 'static')
+    {
+        positionNumbersContainer.classList.remove("box-invisible")
+        box.style.position = positionType
+    }
+    else
+    {
+        positionNumbersContainer.classList.add("box-invisible")
+        box.style.position = ""
+    }
+})
+
+
+
+function positionSetter(numPos, type, postype)
+{
+    setPrint[6] = `position: ${postype}`
+    for(let i = 0; i <= 3; i++)
+    {
+        debugger
+        if(Object.is(Number(numPos[i]),-0))
+        {
+            setPrint[i + 7] = null
+            
+        }
+        else
+        {
+            setPrint[i + 7] = `${positionDirection(i)}: ${numPos[i]}${type}`
+            box.style[positionDirection(i)] = `${numPos[i]}${type}`
+        }
+    }
+    print(setPrint)
+   
+
+}
+
+function positionDirection(test)
+{
+    if(test == 0) return  "top"
+    if(test == 1) return  "right"
+    if(test == 2) return  "bottom"
+    if(test == 3) return  "left"
+}
+
+ 
+
 
 
 // Code Box Code
@@ -363,7 +452,7 @@ function print(codelines)
     let fragment = document.createDocumentFragment()
     let text = ""
     codelines.map((code,index) => {
-        if(index === 0 || index === 6)
+        if(index === 0 || index === 11)
         {
             text +=  code + " \n"
             return
@@ -393,9 +482,6 @@ est.addEventListener("click", (e) => {
         }, 2000)
     })
 })
-
-
-
 
 
 

@@ -34,7 +34,7 @@
                         <h2 class="options-container-h2">Colour</h2>
                         <button class="options-container-button"></button>
                     </span>
-                    <div class="options-container-grid grid-colour">
+                    <div class="options-container-grid grid-colour accordion-close">
                         <button class="delete-colour-pos delete-button" data-item="colour"><img src="assets/bin.svg"
                                 height="20" width="15" alt=""></button>
                         <label class="tick-grad-label" for=""><input class="tick-grad" type="checkbox" name="" id="">
@@ -53,7 +53,7 @@
                         <h2 class="options-container-h2">Padding</h2>
                         <button class="options-container-button"></button>
                     </span>
-                    <div class="options-container-grid">
+                    <div class="options-container-grid accordion-close">
                         <button class="delete-colour-pos delete-button" data-item="padding"><img src="assets/bin.svg"
                                 height="20" width="15" alt=""></button>
                         <div class="padding-type-grid">
@@ -106,7 +106,7 @@
                         <h2 class="options-container-h2">Border</h2>
                         <button class="options-container-button"></button>
                     </span>
-                    <div class="options-container-grid grid-border">
+                    <div class="options-container-grid grid-border accordion-close">
                         <button class="delete-colour-pos delete-button" data-item="border-radius"><img
                                 src="assets/bin.svg" height="20" width="15" alt=""></button>
                         <label for="" class="slider-number-label"><input class="slider-number" type="number" name=""
@@ -137,7 +137,7 @@
                         <h2 class="options-container-h2">Margin</h2>
                         <button class="options-container-button"></button>
                     </span>
-                    <div class="options-container-grid">
+                    <div class="options-container-grid accordion-close">
 
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                         <h2 class="options-container-h2">Box-Shadow</h2>
                         <button class="options-container-button"></button>
                     </span>
-                    <div class="options-container-grid grid-shadow">
+                    <div class="options-container-grid grid-shadow accordion-close">
                         <button class="delete-colour-pos delete-button" data-item="box-shadow"><img src="assets/bin.svg"
                                 height="20" width="15" alt=""></button>
                         <label for="" class="shadow-x-label">
@@ -168,8 +168,63 @@
                         <h2 class="options-container-h2">Position</h2>
                         <button class="options-container-button"></button>
                     </span>
-                    <div class="options-container-grid">
-
+                    <div class="options-container-grid accordion-close">
+                        <button class="delete-colour-pos delete-button" data-item="position"><img src="assets/bin.svg"
+                                height="20" width="15" alt=""></button>
+                        <label for="position-on" class="position-on">
+                            <input type="checkbox" class="position-check" name="position-on" id=""> Position
+                        </label>
+                        <div class="position-type-container box-invisible">
+                            <div class="position-type">
+                                <label for="position-type-value">
+                                    <input checked type="radio" name="position-type-value" value="static" id=""> Static
+                                </label>
+                                <label for="position-type-value">
+                                    <input type="radio" name="position-type-value" value="relative" id=""> Relative
+                                </label>
+                                <label for="position-type-value">
+                                    <input type="radio" name="position-type-value" value="absolute" id=""> Absolute
+                                </label>
+                                <label for="position-type-value">
+                                    <input type="radio" name="position-type-value" value="fixed" id=""> Fixed
+                                </label>
+                                <label for="position-type-value">
+                                    <input type="radio" name="position-type-value" value="sticky" id=""> Sticky
+                                </label>
+                            </div>
+                            <div class="position-numbers-container box-invisible">
+                                <div class="position-type-grid">
+                                    <label for="">
+                                        <input type="radio" checked name="position-numbers-type" id="" value="px"> px
+                                    </label>
+                                    <label for="">
+                                        <input type="radio" name="position-numbers-type" id="" value="rem"> rem
+                                    </label>
+                                    <label for="">
+                                        <input type="radio" name="position-numbers-type" id="" value="em"> em
+                                    </label>
+                                    <label for="">
+                                        <input type="radio" name="position-numbers-type" value="%" id=""> %
+                                    </label>
+                                </div>
+                                <div class="position-numbers">
+                                    <label for="position-top">
+                                        <input type="number" value="-0" class="top-position-number" name="" id=""> Top
+                                    </label>
+                                    <label for="position-right">
+                                        <input type="number" value="-0" class="right-position-number" name="" id="">
+                                        Right
+                                    </label>
+                                    <label for="position-bottom">
+                                        <input type="number" value="-0" class="bottom-position-number" name="" id="">
+                                        Bottom
+                                    </label>
+                                    <label for="position-left">
+                                        <input type="number" value="-0" class="left-position-number" name="" id=""> Left
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -178,7 +233,7 @@
                         <h2 class="options-container-h2">Width/Height</h2>
                         <button class="options-container-button"></button>
                     </span>
-                    <div class="options-container-grid">
+                    <div class="options-container-grid accordion-close">
 
                     </div>
                 </div>
@@ -188,7 +243,7 @@
                         <h2 class="options-container-h2">Flexbox</h2>
                         <button class="options-container-button"></button>
                     </span>
-                    <div class="options-container-grid">
+                    <div class="options-container-grid accordion-close">
 
                     </div>
                 </div>
@@ -215,8 +270,6 @@
                 <button class="paste">Copy</button>
                 <div class="css-code-block">
                     <p class="line"></p>
-
-
                 </div>
             </div>
         </div>
