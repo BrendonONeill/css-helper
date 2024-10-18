@@ -1,4 +1,6 @@
 "use strict"
+// Print
+ let pasteText = ""
 
 // Navigation
 let navBurger = document.querySelector(".nav-burger")
@@ -69,9 +71,18 @@ let leftPosition = document.querySelector(".left-position-number")
 let positionType = "static"
 let positionNumbersType = "px"
 
+// Width and Height Container
+
+let widthAndHeightTypeContainer = document.querySelector(".widthAndHeightType")
+let widthNum = document.querySelector(".widthNumBox")
+let widthSlider = document.querySelector(".widthNumSlider")
+let heightNum = document.querySelector(".heightNumBox")
+let heightSlider = document.querySelector(".heightNumSlider")
+let widthAndHeightType = "px"
+
 
 // Code box Container
-let setPrint = ["{", null, null, null, null, null, null, null, null, null, null, "}"]
+let setPrint = ["{", null, null, null, null, null, null, null, null, null, null, null, null, "}"]
 let est = document.querySelector(".paste")
 
 
@@ -150,10 +161,18 @@ deleteButtons.forEach((deleteBT) => {
                 topPosition.value = rightPosition.value = bottomPosition.value = leftPosition.value = "-0"
                 setPrint[6] = setPrint[7] = setPrint[8] = setPrint[9] = setPrint[10] = null;
                 break;
+
+            case 'widthAndHeight':
+                
+                heightNum.value = heightSlider.value = widthNum.value = widthSlider.value = 200
+                box.style.height = "200px"
+                box.style.width = "200px"
+                setPrint[11] = setPrint[12] = null;
+                break;
             default:
                 console.log("Oops that shouldn't happen")
         }
-        print(setPrint)
+     pasteText = print(setPrint)
     })
 })
 
@@ -177,7 +196,7 @@ cssName.addEventListener("input", (e) => {
             setPrint[0] = "#" + name + "{"
         }
         
-        print(setPrint)
+        pasteText = print(setPrint)
     }
 })
 
@@ -211,27 +230,27 @@ boxColour.addEventListener("input", (e) => {
         box.style.background = e.target.value
         setPrint[1] = `background: ${e.target.value}`
     }
-    print(setPrint)
+    pasteText = print(setPrint)
 })
 
 boxColour2.addEventListener("input", (e) => {
     backgroundSetter(boxColour.value, linear1.value, e.target.value, linear2.value,gradDeg.value)
-    print(setPrint)
+    pasteText =  print(setPrint)
 })
 
 gradDeg.addEventListener("input", (e) => {
     backgroundSetter(boxColour.value, linear1.value, boxColour2.value, linear2.value, e.target.value)
-    print(setPrint)
+    pasteText =  print(setPrint)
 })
 
 linear1.addEventListener("input", (e) => {
     backgroundSetter(boxColour.value, e.target.value, boxColour2.value, linear2.value,gradDeg.value)
-    print(setPrint)
+    pasteText =  print(setPrint)
 })
 
 linear2.addEventListener("input", (e) => {
     backgroundSetter(boxColour.value, linear1.value,boxColour2.value, e.target.value,gradDeg.value)
-    print(setPrint)
+    pasteText = print(setPrint)
 })
 
 function backgroundSetter(a,b,c,d,e)
@@ -279,7 +298,7 @@ function paddingSetter(AP,DP)
         box.style.padding = `${AP}${paddingType}`
         setPrint[2] = `padding: ${AP}${paddingType}` 
     }
-    print(setPrint)
+    pasteText = print(setPrint)
     
 }
 
@@ -306,7 +325,7 @@ slider.addEventListener("input", (e) => {
     sliderNum.value = e.target.value
     box.style.borderRadius = `${e.target.value}%`
     setPrint[3] = `border-radius: ${e.target.value}px; `
-    print(setPrint)
+    pasteText = print(setPrint)
 })
 
 sliderNum.addEventListener("change", (e) => {
@@ -318,7 +337,7 @@ borderSize.addEventListener("input", (e) => {
     borderSlider.value = e.target.value
     box.style.border = `${e.target.value}px ${borderType} ${borderColour.value}`
     setPrint[4] = `border: ${e.target.value}px ${borderType} ${borderColour.value}; `
-    print(setPrint)
+    pasteText = print(setPrint)
 
 })
 
@@ -326,13 +345,13 @@ borderSlider.addEventListener("input", (e) => {
     borderSize.value = e.target.value
     box.style.border = `${borderSize.value}px ${borderType} ${borderColour.value}`
     setPrint[4] = `border: ${borderSize.value}px ${borderType} ${borderColour.value}; `
-    print(setPrint)
+    pasteText = print(setPrint)
 })
 
 borderColour.addEventListener("input", (e) => {
     box.style.border = `${borderSize.value}px ${borderType} ${e.target.value}`
     setPrint[4] = `border: ${borderSize.value}px ${borderType} ${e.target.value}; `
-    print(setPrint)
+    pasteText = print(setPrint)
 })
 
 borders.forEach((bt) => {
@@ -340,7 +359,7 @@ borders.forEach((bt) => {
         borderType = e.target.value;
         box.style.border = `${borderSize.value}px ${e.target.value} ${borderColour.value}`
         setPrint[4] = `border: ${borderSize.value}px ${e.target.value} ${borderColour.value}; `
-        print(setPrint)
+        pasteText =  print(setPrint)
     })
 })
 
@@ -351,27 +370,27 @@ borders.forEach((bt) => {
 shadowX.addEventListener("input", (e) => {
     box.style.boxShadow = `${e.target.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value}`;
     setPrint[5] = `box-shadow: ${e.target.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value}; `
-    print(setPrint)
+    pasteText = print(setPrint)
 })
 shadowY.addEventListener("input", (e) => {
     box.style.boxShadow = `${shadowX.value}px ${e.target.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value}`;
     setPrint[5] = `box-shadow: ${shadowX.value}px ${e.target.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value}; `;
-    print(setPrint)
+    pasteText = print(setPrint)
 })
 shadowBlur.addEventListener("input", (e) => {
     box.style.boxShadow = `${shadowX.value}px ${shadowY.value}px ${e.target.value}px  ${shadowSpread.value}px ${shadowColour.value}`;
     setPrint[5] = `box-shadow: ${shadowX.value}px ${shadowY.value}px ${e.target.value}px  ${shadowSpread.value}px ${shadowColour.value}; `;
-    print(setPrint)
+    pasteText = print(setPrint)
 })
 shadowSpread.addEventListener("input", (e) => {
     box.style.boxShadow = `${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${e.target.value}px ${shadowColour.value}`;
     setPrint[5] = `box-shadow: ${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${e.target.value}px ${shadowColour.value}; `;
-    print(setPrint)
+    pasteText = print(setPrint)
 })
 shadowColour.addEventListener("input", (e) => {
     box.style.boxShadow = `${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${e.target.value}`;
     setPrint[5] = `box-shadow: ${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${e.target.value}; `;
-    print(setPrint)
+    pasteText = print(setPrint)
 })
 
 
@@ -411,13 +430,11 @@ positionTypeOptions.addEventListener("input", (e) => {
 })
 
 
-
 function positionSetter(numPos, type, postype)
 {
     setPrint[6] = `position: ${postype}`
     for(let i = 0; i <= 3; i++)
     {
-        debugger
         if(Object.is(Number(numPos[i]),-0))
         {
             setPrint[i + 7] = null
@@ -429,7 +446,7 @@ function positionSetter(numPos, type, postype)
             box.style[positionDirection(i)] = `${numPos[i]}${type}`
         }
     }
-    print(setPrint)
+    pasteText = print(setPrint)
    
 
 }
@@ -442,23 +459,66 @@ function positionDirection(test)
     if(test == 3) return  "left"
 }
 
- 
+// Width and Height Code
 
+widthAndHeightTypeContainer.addEventListener("input", (e) => {
+     widthAndHeightType = e.target.value
+})
 
+widthNum.addEventListener("input", (e) => {
+    widthSlider.value = e.target.value
+    widthAndHeightSetter(e.target.value, "width", widthAndHeightType)
+})
+widthSlider.addEventListener("input", (e) => {
+     widthNum.value = e.target.value
+     widthAndHeightSetter(e.target.value, "width", widthAndHeightType)
+})
+heightNum.addEventListener("input", (e) => {
+     heightSlider.value = e.target.value
+     widthAndHeightSetter(e.target.value, "height", widthAndHeightType)
+})
+heightSlider.addEventListener("input", (e) => {
+     heightNum.value = e.target.value
+     widthAndHeightSetter(e.target.value, "height", widthAndHeightType)
+})
+
+function widthAndHeightSetter(value, direction, type)
+{
+    if(direction === 'height')
+    {
+        box.style.height = `${value}${type}`
+        setPrint[11] = `height: ${value}${type}`
+    }
+    else
+    {
+        box.style.width = `${value}${type}`
+        setPrint[12] = `width: ${value}${type}`
+    }
+    pasteText = print(setPrint)
+}
 
 // Code Box Code
 function print(codelines)
 {
-    let fragment = document.createDocumentFragment()
     let text = ""
+    let pasteText = ""
+    let fragment = document.createDocumentFragment()
     codelines.map((code,index) => {
-        if(index === 0 || index === 11)
+        if(index === 0 || index === 13)
         {
             text +=  code + " \n"
+            pasteText +=  code + " \n"
             return
         }
         if(code !== null){
+            if(window.innerWidth < 600)
+            {
+                text += " \t" + code.slice(0, 32) + "..." + " \n"
+                pasteText +=  " \t" + code + " \n"
+                return
+            }
             text +=  " \t" + code + " \n"
+            pasteText +=  " \t" + code + " \n"
             return
         }
     })
@@ -468,12 +528,12 @@ function print(codelines)
     fragment.appendChild(line)
     document.querySelector(".css-code-block").innerHTML = ""
     document.querySelector(".css-code-block").appendChild(fragment)
+    return pasteText
 }
 
 est.addEventListener("click", (e) => {
     e.preventDefault()
-    let a = document.querySelector(".css-code-block").textContent
-    navigator.clipboard.writeText(a).then(() => {
+    navigator.clipboard.writeText(pasteText).then(() => {
         est.classList.add("copied")
         est.textContent = "Copied"
         setTimeout(() => {
