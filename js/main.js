@@ -85,6 +85,9 @@ let widthAndHeightType = "px"
 let setPrint = ["{", null, null, null, null, null, null, null, null, null, null, null, null, "}"]
 let est = document.querySelector(".paste")
 
+// Animation Timer
+let timeUpdate = 0;
+
 
 // Navigation Code
 
@@ -255,8 +258,8 @@ linear2.addEventListener("input", (e) => {
 
 function backgroundSetter(a,b,c,d,e)
 {
-     box.style.background = `linear-gradient(${e}deg, ${a} ${b}%, ${c} ${d}%)`
-     setPrint[1] = `background: linear-gradient(${e}deg, ${a} ${b}%, ${c} ${d}%); `
+        box.style.background = `linear-gradient(${e}deg, ${a} ${b}%, ${c} ${d}%)`
+        setPrint[1] = `background: linear-gradient(${e}deg, ${a} ${b}%, ${c} ${d}%); `
 }
 
 //Padding Code
@@ -276,30 +279,28 @@ paddingTypeGrid.addEventListener("input",(e) => {
 allPadding.addEventListener("input", (e) => {
     if(!separatePadding.checked)
     {
-        console.log("is not checked")
         paddingSetter(e.target.value,null)
     }
 })
 
-document.g
+
 function paddingSetter(AP,DP)
 {
-    if(!innerBox.classList.contains("colour-inner-box"))
-    {
-        innerBox.classList.add("colour-inner-box")
-    }
-    if(AP == null)
-    {
-        box.style.padding = `${DP[0]}${paddingType}  ${DP[1]}${paddingType} ${DP[2]}${paddingType} ${DP[3]}${paddingType}`
-        setPrint[2] = `padding: ${DP[0]}${paddingType}  ${DP[1]}${paddingType} ${DP[2]}${paddingType} ${DP[3]}${paddingType}` 
-    } 
-    else
-    {
-        box.style.padding = `${AP}${paddingType}`
-        setPrint[2] = `padding: ${AP}${paddingType}` 
-    }
-    pasteText = print(setPrint)
-    
+        if(!innerBox.classList.contains("colour-inner-box"))
+        {
+            innerBox.classList.add("colour-inner-box")
+        }
+        if(AP == null)
+        {
+            box.style.padding = `${DP[0]}${paddingType}  ${DP[1]}${paddingType} ${DP[2]}${paddingType} ${DP[3]}${paddingType}`
+            setPrint[2] = `padding: ${DP[0]}${paddingType}  ${DP[1]}${paddingType} ${DP[2]}${paddingType} ${DP[3]}${paddingType}` 
+        } 
+        else
+        {
+            box.style.padding = `${AP}${paddingType}`
+            setPrint[2] = `padding: ${AP}${paddingType}` 
+        }
+        pasteText = print(setPrint)
 }
 
 separatePaddingOptions.addEventListener("input", () => {
@@ -544,5 +545,19 @@ est.addEventListener("click", (e) => {
 })
 
 
+// Needs to be implemented after refactor
+//
+//  animationTime(() => cb(a,b))
+//
+// timer function
+function animationTime(cb)
+{
+    const now = Date.now();
+    if (now - timeUpdate > 50) 
+    {
+        cb()
+        timeUpdate = now;
+    }
+}
 
 

@@ -10,9 +10,10 @@
 }
 
 :root {
-    --dark-main: #003459;
-    --dark-main-light: #002E4F;
-    --main: #306F9C;
+    --dark-main-colour: #0463ca;
+    --darker-main-colour: #022D5B;
+    --dark-main-active-colour: #023E7D;
+    --main-colour: #0487e2;
     --grey-main: #5F839E;
 }
 
@@ -21,7 +22,7 @@ body {
 }
 
 header {
-    background-color: var(--dark-main);
+    background-color: var(--dark-main-colour);
     color: white;
     padding: 1rem 1rem;
     display: flex;
@@ -51,7 +52,7 @@ header {
     bottom: 0;
     left: -400px;
     width: 70%;
-    background-color: var(--main);
+    background-color: var(--main-colour);
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -67,7 +68,7 @@ header {
 }
 
 .options-header button {
-    background-color: var(--dark-main);
+    background-color: var(--dark-main-colour);
     border-radius: 5px;
     padding: 0.4rem 0.6rem;
     border: 1px solid white;
@@ -90,7 +91,7 @@ header {
 
 .options-container-header {
     display: flex;
-    background-color: var(--dark-main-light);
+    background-color: var(--darker-main-colour);
     color: white;
     border-radius: 5px 5px 0 0;
     padding: 1rem;
@@ -103,7 +104,7 @@ header {
 }
 
 .options-container-button {
-    background-color: var(--main);
+    background-color: var(--main-colour);
     color: white;
     font-size: 1rem;
     border-radius: 50%;
@@ -123,7 +124,7 @@ header {
 
 .options-container-h2-closed {
     border-radius: 5px;
-    background-color: var(--dark-main);
+    background-color: var(--dark-main-colour);
 }
 
 .options-container-grid {
@@ -191,7 +192,7 @@ header {
 .grad-deg {
     width: 40px;
     text-align: center;
-    border: 2px solid var(--dark-main);
+    border: 2px solid var(--dark-main-colour);
 }
 
 .grad-deg-label {
@@ -238,7 +239,7 @@ header {
 .heightNumBox,
 .widthNumBox {
     width: 40px;
-    border: 2px solid var(--dark-main);
+    border: 2px solid var(--dark-main-colour);
 }
 
 .separate-padding-options {
@@ -271,7 +272,7 @@ header {
 
 .slider-number {
     width: 40px;
-    border: 2px solid var(--dark-main);
+    border: 2px solid var(--dark-main-colour);
 }
 
 .border-number-label {
@@ -285,7 +286,7 @@ header {
 
 .border-number {
     width: 40px;
-    border: 2px solid var(--dark-main);
+    border: 2px solid var(--dark-main-colour);
 }
 
 .border-slider {
@@ -431,13 +432,14 @@ header {
 
 .box {
     background-repeat: no-repeat;
-    background: var(--main);
+    background: var(--main-colour);
     width: 200px;
     height: 200px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .inner-box {
@@ -445,6 +447,7 @@ header {
     background-color: transparent;
     height: 100%;
     width: 100%;
+    transition: all 0.3s ease;
 }
 
 .colour-inner-box {
@@ -489,7 +492,7 @@ header {
     position: absolute;
     top: 20px;
     left: 20px;
-    background-color: var(--dark-main);
+    background-color: var(--dark-main-active-colour);
     color: white;
     padding: 1rem;
     border-radius: 5px;
@@ -510,7 +513,7 @@ header {
 }
 
 footer {
-    background-color: var(--dark-main);
+    background-color: var(--dark-main-colour);
     color: white;
     padding: 3rem 1rem;
     display: flex;
@@ -633,7 +636,7 @@ form {
         position: relative;
         left: 0;
         width: 100%;
-        background-color: var(--main);
+        background-color: var(--main-colour);
         padding: 1rem;
         display: flex;
         flex-direction: column;
