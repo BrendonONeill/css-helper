@@ -82,8 +82,8 @@ let widthAndHeightType = "px"
 
 
 // Code box Container
-let setPrint = ["{", null, null, null, null, null, null, null, null, null, null, null, null, "}"]
-let est = document.querySelector(".paste")
+let cssGeneratedText = ["{", null, null, null, null, null, null, null, null, null, null, null, null, "}"]
+let pasteButton = document.querySelector(".paste")
 
 // Animation Timer
 let timeUpdate = 0;
@@ -105,8 +105,7 @@ optionsContainers.forEach((container) => {
     let content = container.querySelector("div")
     let containerHeader = container.querySelector(".options-container-header")
     let containerButton = container.querySelector(".options-container-button")
-    containerHeader.addEventListener("click", () => {
-        
+    containerHeader.addEventListener("click", () => {    
         content.classList.toggle("accordion-close")
         containerHeader.classList.toggle("options-container-h2-closed")
         containerButton.classList.toggle("button-flip")
@@ -116,68 +115,74 @@ optionsContainers.forEach((container) => {
 deleteButtons.forEach((deleteBT) => {
     deleteBT.addEventListener("click", () => {
         let type = deleteBT.getAttribute('data-item')
-        switch(type) {
-            case 'colour':
-                boxColour.value = '#306F9C'
-                gradDeg.value = 0
-                linear1.value = 50
-                linear2.value = 50
-                boxColour2.value = '#ffffff'
-                box.style.background = '';
-                setPrint[1] = null;
-                break;
-            case 'padding':
-                allPadding.value = 0
-                topPadding.value = 0
-                rightPadding.value = 0
-                bottomPadding.value = 0
-                leftPadding.value = 0
-                box.style.padding = "0"
-                innerBox.classList.remove("colour-inner-box")
-                setPrint[2] = null;
-                break;
-            case 'border-radius':
-                box.style.borderRadius = ''
-                slider.value = 0
-                sliderNum.value = 0
-                setPrint[3] = null;
-                break;
-            case 'border':
-                
-                borderSlider.value = 0;
-                borderSize.value = 0;
-                borderColour.value = '#ffffff';
-                box.style.border = '';
-                setPrint[4] = null;
-                break;
-            case 'box-shadow':
-                shadowX.value = 0
-                shadowY.value = 0
-                shadowBlur.value = 0
-                shadowSpread.value = 0
-                shadowColour.value = '#ffffff'
-                box.style.boxShadow = ''
-                setPrint[5] = null;
-                break;
-            case 'position':
-                
-                topPosition.value = rightPosition.value = bottomPosition.value = leftPosition.value = "-0"
-                setPrint[6] = setPrint[7] = setPrint[8] = setPrint[9] = setPrint[10] = null;
-                break;
-
-            case 'widthAndHeight':
-                
-                heightNum.value = heightSlider.value = widthNum.value = widthSlider.value = 200
-                box.style.height = "200px"
-                box.style.width = "200px"
-                setPrint[11] = setPrint[12] = null;
-                break;
-            default:
-                console.log("Oops that shouldn't happen")
-        }
-     pasteText = print(setPrint)
+        removedCSSCode(type)
     })
 })
+
+
+function removedCSSCode(type)
+{
+    switch(type) {
+        case 'colour':
+            boxColour.value = '#306F9C'
+            gradDeg.value = 0
+            linear1.value = 50
+            linear2.value = 50
+            boxColour2.value = '#ffffff'
+            box.style.background = '';
+            cssGeneratedText[1] = null;
+            break;
+        case 'padding':
+            allPadding.value = 0
+            topPadding.value = 0
+            rightPadding.value = 0
+            bottomPadding.value = 0
+            leftPadding.value = 0
+            box.style.padding = "0"
+            innerBox.classList.remove("colour-inner-box")
+            cssGeneratedText[2] = null;
+            break;
+        case 'border-radius':
+            box.style.borderRadius = ''
+            slider.value = 0
+            sliderNum.value = 0
+            cssGeneratedText[3] = null;
+            break;
+        case 'border':
+            
+            borderSlider.value = 0;
+            borderSize.value = 0;
+            borderColour.value = '#ffffff';
+            box.style.border = '';
+            cssGeneratedText[4] = null;
+            break;
+        case 'box-shadow':
+            shadowX.value = 0
+            shadowY.value = 0
+            shadowBlur.value = 0
+            shadowSpread.value = 0
+            shadowColour.value = '#ffffff'
+            box.style.boxShadow = ''
+            cssGeneratedText[5] = null;
+            break;
+        case 'position':
+            box.style.top = box.style.right = box.style.bottom = box.style.left = ""
+            topPosition.value = rightPosition.value = bottomPosition.value = leftPosition.value = "-0"
+            cssGeneratedText[6] = cssGeneratedText[7] = cssGeneratedText[8] = cssGeneratedText[9] = cssGeneratedText[10] = null;
+            break;
+
+        case 'widthAndHeight':
+            
+            heightNum.value = heightSlider.value = widthNum.value = widthSlider.value = 200
+            box.style.height = "200px"
+            box.style.width = "200px"
+            cssGeneratedText[11] = cssGeneratedText[12] = null;
+            break;
+        default:
+            console.log("Oops that shouldn't happen")
+    }
+ pasteText = print(cssGeneratedText)
+} 
 
 // Action Code
 
@@ -192,21 +197,20 @@ cssName.addEventListener("input", (e) => {
         name = name.replaceAll(" ", "-")
         if(nameClass.checked)
         {
-            setPrint[0] = "." + name + "{"
+            cssGeneratedText[0] = "." + name + "{"
         }
         if(nameId.checked)
         {
-            setPrint[0] = "#" + name + "{"
+            cssGeneratedText[0] = "#" + name + "{"
         }
-        
-        pasteText = print(setPrint)
+        pasteText = print(cssGeneratedText)
     }
 })
 
 
 
 // Colour Code
-gradColour.addEventListener("change", (e) => {
+gradColour.addEventListener("change", () => {
     if(boxColour2.classList.contains("box-hide"))
     {
         boxColour2.classList.remove("box-hide")
@@ -223,6 +227,8 @@ gradColour.addEventListener("change", (e) => {
     }
 })
 
+
+
 boxColour.addEventListener("input", (e) => {
     if(gradColour.checked)
     {
@@ -230,36 +236,36 @@ boxColour.addEventListener("input", (e) => {
     }
     else
     {
-        box.style.background = e.target.value
-        setPrint[1] = `background: ${e.target.value}`
+        updateBox('background', e.target.value)
+        generateCss(1,  `background: ${e.target.value}`)
     }
-    pasteText = print(setPrint)
+    pasteText = print(cssGeneratedText)
 })
 
 boxColour2.addEventListener("input", (e) => {
     backgroundSetter(boxColour.value, linear1.value, e.target.value, linear2.value,gradDeg.value)
-    pasteText =  print(setPrint)
+    pasteText =  print(cssGeneratedText)
 })
 
 gradDeg.addEventListener("input", (e) => {
     backgroundSetter(boxColour.value, linear1.value, boxColour2.value, linear2.value, e.target.value)
-    pasteText =  print(setPrint)
+    pasteText =  print(cssGeneratedText)
 })
 
 linear1.addEventListener("input", (e) => {
     backgroundSetter(boxColour.value, e.target.value, boxColour2.value, linear2.value,gradDeg.value)
-    pasteText =  print(setPrint)
+    pasteText =  print(cssGeneratedText)
 })
 
 linear2.addEventListener("input", (e) => {
     backgroundSetter(boxColour.value, linear1.value,boxColour2.value, e.target.value,gradDeg.value)
-    pasteText = print(setPrint)
+    pasteText = print(cssGeneratedText)
 })
 
 function backgroundSetter(a,b,c,d,e)
 {
-        box.style.background = `linear-gradient(${e}deg, ${a} ${b}%, ${c} ${d}%)`
-        setPrint[1] = `background: linear-gradient(${e}deg, ${a} ${b}%, ${c} ${d}%); `
+    updateBox('background', `linear-gradient(${e}deg, ${a} ${b}%, ${c} ${d}%)`)
+    generateCss(1,`background: linear-gradient(${e}deg, ${a} ${b}%, ${c} ${d}%);`)
 }
 
 //Padding Code
@@ -292,15 +298,15 @@ function paddingSetter(AP,DP)
         }
         if(AP == null)
         {
-            box.style.padding = `${DP[0]}${paddingType}  ${DP[1]}${paddingType} ${DP[2]}${paddingType} ${DP[3]}${paddingType}`
-            setPrint[2] = `padding: ${DP[0]}${paddingType}  ${DP[1]}${paddingType} ${DP[2]}${paddingType} ${DP[3]}${paddingType}` 
+            updateBox('padding', `${DP[0]}${paddingType}  ${DP[1]}${paddingType} ${DP[2]}${paddingType} ${DP[3]}${paddingType}`)
+            generateCss(2, `padding: ${DP[0]}${paddingType}  ${DP[1]}${paddingType} ${DP[2]}${paddingType} ${DP[3]}${paddingType}`)
         } 
         else
         {
-            box.style.padding = `${AP}${paddingType}`
-            setPrint[2] = `padding: ${AP}${paddingType}` 
+            updateBox('padding', `${AP}${paddingType}`)
+            generateCss(2, `padding: ${AP}${paddingType}`)
         }
-        pasteText = print(setPrint)
+        pasteText = print(cssGeneratedText)
 }
 
 separatePaddingOptions.addEventListener("input", () => {
@@ -324,43 +330,44 @@ separatePadding.addEventListener("change", () => {
 
 slider.addEventListener("input", (e) => {
     sliderNum.value = e.target.value
-    box.style.borderRadius = `${e.target.value}%`
-    setPrint[3] = `border-radius: ${e.target.value}px; `
-    pasteText = print(setPrint)
+    updateBox('borderRadius', `${e.target.value}%`)
+    generateCss(3, `border-radius: ${e.target.value}px;`)
+    pasteText = print(cssGeneratedText)
 })
 
 sliderNum.addEventListener("change", (e) => {
     slider.value = e.target.value
-    box.style.borderRadius = `${e.target.value}px`
+    updateBox('borderRadius', `${e.target.value}px`)
+    generateCss(3, `border-radius: ${e.target.value}px;`)
+    pasteText = print(cssGeneratedText) 
 })
 
 borderSize.addEventListener("input", (e) => {
     borderSlider.value = e.target.value
-    box.style.border = `${e.target.value}px ${borderType} ${borderColour.value}`
-    setPrint[4] = `border: ${e.target.value}px ${borderType} ${borderColour.value}; `
-    pasteText = print(setPrint)
-
+    updateBox('border', `${e.target.value}px ${borderType} ${borderColour.value}`)
+    generateCss(4, `border: ${e.target.value}px ${borderType} ${borderColour.value};`)
+    pasteText = print(cssGeneratedText)
 })
 
 borderSlider.addEventListener("input", (e) => {
     borderSize.value = e.target.value
-    box.style.border = `${borderSize.value}px ${borderType} ${borderColour.value}`
-    setPrint[4] = `border: ${borderSize.value}px ${borderType} ${borderColour.value}; `
-    pasteText = print(setPrint)
+    updateBox('border', `${borderSize.value}px ${borderType} ${borderColour.value}`)
+    generateCss(4, `border: ${borderSize.value}px ${borderType} ${borderColour.value};`)
+    pasteText = print(cssGeneratedText)
 })
 
 borderColour.addEventListener("input", (e) => {
-    box.style.border = `${borderSize.value}px ${borderType} ${e.target.value}`
-    setPrint[4] = `border: ${borderSize.value}px ${borderType} ${e.target.value}; `
-    pasteText = print(setPrint)
+    updateBox('border', `${borderSize.value}px ${borderType} ${e.target.value}`)
+    generateCss(4,  `border: ${borderSize.value}px ${borderType} ${e.target.value};`)
+    pasteText = print(cssGeneratedText)
 })
 
 borders.forEach((bt) => {
     bt.addEventListener("click", (e) => {
         borderType = e.target.value;
-        box.style.border = `${borderSize.value}px ${e.target.value} ${borderColour.value}`
-        setPrint[4] = `border: ${borderSize.value}px ${e.target.value} ${borderColour.value}; `
-        pasteText =  print(setPrint)
+        updateBox('border', `${borderSize.value}px ${e.target.value} ${borderColour.value}`)
+        generateCss(4, `border: ${borderSize.value}px ${e.target.value} ${borderColour.value};`)
+        pasteText =  print(cssGeneratedText)
     })
 })
 
@@ -369,29 +376,29 @@ borders.forEach((bt) => {
 //Box Shadow Code
 
 shadowX.addEventListener("input", (e) => {
-    box.style.boxShadow = `${e.target.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value}`;
-    setPrint[5] = `box-shadow: ${e.target.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value}; `
-    pasteText = print(setPrint)
+    updateBox('boxShadow',`${e.target.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value}`)
+    generateCss(5,`box-shadow: ${e.target.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value};`)
+    pasteText = print(cssGeneratedText)
 })
 shadowY.addEventListener("input", (e) => {
-    box.style.boxShadow = `${shadowX.value}px ${e.target.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value}`;
-    setPrint[5] = `box-shadow: ${shadowX.value}px ${e.target.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value}; `;
-    pasteText = print(setPrint)
+    updateBox('boxShadow',`${shadowX.value}px ${e.target.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value}`)
+    generateCss(5,`box-shadow: ${shadowX.value}px ${e.target.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${shadowColour.value};`)
+    pasteText = print(cssGeneratedText)
 })
 shadowBlur.addEventListener("input", (e) => {
-    box.style.boxShadow = `${shadowX.value}px ${shadowY.value}px ${e.target.value}px  ${shadowSpread.value}px ${shadowColour.value}`;
-    setPrint[5] = `box-shadow: ${shadowX.value}px ${shadowY.value}px ${e.target.value}px  ${shadowSpread.value}px ${shadowColour.value}; `;
-    pasteText = print(setPrint)
+    updateBox('boxShadow', `${shadowX.value}px ${shadowY.value}px ${e.target.value}px  ${shadowSpread.value}px ${shadowColour.value}`)
+    generateCss(5, `box-shadow: ${shadowX.value}px ${shadowY.value}px ${e.target.value}px  ${shadowSpread.value}px ${shadowColour.value};`)
+    pasteText = print(cssGeneratedText)
 })
 shadowSpread.addEventListener("input", (e) => {
-    box.style.boxShadow = `${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${e.target.value}px ${shadowColour.value}`;
-    setPrint[5] = `box-shadow: ${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${e.target.value}px ${shadowColour.value}; `;
-    pasteText = print(setPrint)
+    updateBox('boxShadow', `${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${e.target.value}px ${shadowColour.value}`)
+    generateCss(5,`box-shadow: ${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${e.target.value}px ${shadowColour.value};`)
+    pasteText = print(cssGeneratedText)
 })
 shadowColour.addEventListener("input", (e) => {
-    box.style.boxShadow = `${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${e.target.value}`;
-    setPrint[5] = `box-shadow: ${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${e.target.value}; `;
-    pasteText = print(setPrint)
+    updateBox('boxShadow', `${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${e.target.value}`)
+    generateCss(5,`box-shadow: ${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px  ${shadowSpread.value}px ${e.target.value};`)
+    pasteText = print(cssGeneratedText)
 })
 
 
@@ -421,43 +428,42 @@ positionTypeOptions.addEventListener("input", (e) => {
     if(positionType != 'static')
     {
         positionNumbersContainer.classList.remove("box-invisible")
-        box.style.position = positionType
+        updateBox('position', positionType)
     }
     else
     {
         positionNumbersContainer.classList.add("box-invisible")
-        box.style.position = ""
+        updateBox('position', "")
     }
 })
 
 
 function positionSetter(numPos, type, postype)
 {
-    setPrint[6] = `position: ${postype}`
+    cssGeneratedText[6] = `position: ${postype}`
     for(let i = 0; i <= 3; i++)
     {
         if(Object.is(Number(numPos[i]),-0))
         {
-            setPrint[i + 7] = null
-            
+            generateCss((i+7), null)
         }
         else
         {
-            setPrint[i + 7] = `${positionDirection(i)}: ${numPos[i]}${type}`
-            box.style[positionDirection(i)] = `${numPos[i]}${type}`
+            updateBox(positionDirection(i), `${numPos[i]}${type}`)
+            generateCss((i + 7), `${positionDirection(i)}: ${numPos[i]}${type}`)
         }
     }
-    pasteText = print(setPrint)
+    pasteText = print(cssGeneratedText)
    
 
 }
 
-function positionDirection(test)
+function positionDirection(direction)
 {
-    if(test == 0) return  "top"
-    if(test == 1) return  "right"
-    if(test == 2) return  "bottom"
-    if(test == 3) return  "left"
+    if(direction == 0) return  "top"
+    if(direction == 1) return  "right"
+    if(direction == 2) return  "bottom"
+    if(direction == 3) return  "left"
 }
 
 // Width and Height Code
@@ -487,15 +493,15 @@ function widthAndHeightSetter(value, direction, type)
 {
     if(direction === 'height')
     {
-        box.style.height = `${value}${type}`
-        setPrint[11] = `height: ${value}${type}`
+        updateBox('height', `${value}${type}`)
+        generateCss(11, `height: ${value}${type}`)
     }
     else
     {
-        box.style.width = `${value}${type}`
-        setPrint[12] = `width: ${value}${type}`
+        updateBox('width', `${value}${type}`)
+        generateCss(12, `width: ${value}${type}`)
     }
-    pasteText = print(setPrint)
+    pasteText = print(cssGeneratedText)
 }
 
 // Code Box Code
@@ -532,14 +538,24 @@ function print(codelines)
     return pasteText
 }
 
-est.addEventListener("click", (e) => {
+function generateCss(cssPos, cssText)
+{
+    cssGeneratedText[cssPos] = cssText;
+}
+
+function updateBox(key,value)
+{
+    animationTime(() => { box.style[key] = value}) 
+}
+
+pasteButton.addEventListener("click", (e) => {
     e.preventDefault()
     navigator.clipboard.writeText(pasteText).then(() => {
-        est.classList.add("copied")
-        est.textContent = "Copied"
+        pasteButton.classList.add("copied")
+        pasteButton.textContent = "Copied"
         setTimeout(() => {
-            est.classList.remove("copied");
-            est.textContent = "Copy"; 
+            pasteButton.classList.remove("copied");
+            pasteButton.textContent = "Copy"; 
         }, 2000)
     })
 })
