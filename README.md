@@ -8,7 +8,11 @@ This site was created so I generate css faster
 - Flex and grid layouts
 - Animations
 - CSS specificity calculator
-- Improving performance 
+- Improving performance
+
+## Working On
+- Refactoring the code to improve performance
+- Cleaning up into functions to prevent DRY code 
 
 ## Known Bugs
 
