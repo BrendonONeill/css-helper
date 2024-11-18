@@ -656,3 +656,15 @@ form {
     }
 
 }
+
+@media only screen and (min-width: 2560px) {
+
+    .grid {
+        grid-template-columns: 1fr 8fr;
+        grid-template-rows: 3fr 1fr;
+    }
+
+    .options-container-button {
+        flex-basis: 12%;
+    }
+}

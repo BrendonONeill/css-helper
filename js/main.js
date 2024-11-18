@@ -92,7 +92,16 @@ let timeUpdate = 0;
 // Navigation Code
 
 navBurger.addEventListener("click", () => { 
-        sidebar.classList.add("active")
+
+        if(sidebar.classList.contains("active"))
+        {
+            sidebar.classList.remove("active")
+        }
+        else
+        {
+            sidebar.classList.add("active")
+        }
+      
 })
 
 sidebarClose.addEventListener("click", (e) => {
