@@ -56,6 +56,14 @@ let borderSlider = document.querySelector(".border-slider")
 let borderColour = document.querySelector(".border-colour")
 let borders = document.querySelectorAll(".border-type")
 let borderType = "solid"
+let radiusCheckBox = document.getElementById("separate-border-radius-checkbox")
+let separateRadiusOptions = document.getElementById("separate-radius-options")
+let borderRadiusType = 'px'
+let borderRadiusTypeCheck = document.querySelector(".border-radius-number-type")
+let topLeftRadiusNumber = document.querySelector(".top-left-radius")
+let topRightRadiusNumber = document.querySelector(".top-right-radius")
+let bottomLeftRadiusNumber = document.querySelector(".bottom-left-radius")
+let bottomRightRadiusNumber = document.querySelector(".bottom-right-radius")
 
 // Position Container
 let positionCheck = document.querySelector(".position-check")
@@ -114,15 +122,20 @@ optionsContainers.forEach((container) => {
     let content = container.querySelector("div")
     let containerHeader = container.querySelector(".options-container-header")
     let containerButton = container.querySelector(".options-container-button")
-    containerHeader.addEventListener("click", () => {    
-        content.classList.toggle("accordion-close")
-        containerHeader.classList.toggle("options-container-h2-closed")
-        containerButton.classList.toggle("button-flip")
-    })
+    if(!containerHeader.classList.contains("disabled"))
+    {
+        containerHeader.addEventListener("click", () => {    
+            content.classList.toggle("accordion-close")
+            containerHeader.classList.toggle("options-container-h2-closed")
+            containerButton.classList.toggle("button-flip")
+        })    
+    }
+    
 })
 
 deleteButtons.forEach((deleteBT) => {
-    deleteBT.addEventListener("click", () => {
+    deleteBT.addEventListener("click", (e) => {
+        e.preventDefault()
         let type = deleteBT.getAttribute('data-item')
         removedCSSCode(type)
     })
@@ -155,6 +168,7 @@ function removedCSSCode(type)
             box.style.borderRadius = ''
             slider.value = 0
             sliderNum.value = 0
+            topLeftRadiusNumber.value = topRightRadiusNumber.value = bottomLeftRadiusNumber.value = bottomRightRadiusNumber.value = 0
             cssGeneratedText[3] = null;
             break;
         case 'border':
@@ -339,15 +353,15 @@ separatePadding.addEventListener("change", () => {
 
 slider.addEventListener("input", (e) => {
     sliderNum.value = e.target.value
-    updateBox('borderRadius', `${e.target.value}%`)
-    generateCss(3, `border-radius: ${e.target.value}px;`)
+    updateBox('borderRadius', `${e.target.value}${borderRadiusType}`)
+    generateCss(3, `border-radius: ${e.target.value}${borderRadiusType};`)
     pasteText = print(cssGeneratedText)
 })
 
 sliderNum.addEventListener("change", (e) => {
     slider.value = e.target.value
-    updateBox('borderRadius', `${e.target.value}px`)
-    generateCss(3, `border-radius: ${e.target.value}px;`)
+    updateBox('borderRadius', `${e.target.value}${borderRadiusType}`)
+    generateCss(3, `border-radius: ${e.target.value}${borderRadiusType};`)
     pasteText = print(cssGeneratedText) 
 })
 
@@ -379,6 +393,33 @@ borders.forEach((bt) => {
         pasteText =  print(cssGeneratedText)
     })
 })
+
+
+radiusCheckBox.addEventListener("change", () => {
+    if(separateRadiusOptions.classList.contains("box-invisible"))
+        {
+            separateRadiusOptions.classList.remove("box-invisible")
+        }
+        else
+        {
+            separateRadiusOptions.classList.add("box-invisible")
+        }
+})
+
+separateRadiusOptions.addEventListener("input", () => {
+    test([topLeftRadiusNumber.value,topRightRadiusNumber.value,bottomRightRadiusNumber.value,bottomLeftRadiusNumber.value])
+})
+
+borderRadiusTypeCheck.addEventListener("change", (e) => {
+    borderRadiusType = e.target.value
+})
+
+function test(SR)
+{
+    updateBox('borderRadius', `${SR[0]}${borderRadiusType} ${SR[1]}${borderRadiusType} ${SR[2]}${borderRadiusType} ${SR[3]}${borderRadiusType}`)
+    generateCss(3, `border-radius: ${SR[0]}${borderRadiusType} ${SR[1]}${borderRadiusType} ${SR[2]}${borderRadiusType} ${SR[3]}${borderRadiusType};`)
+    pasteText =  print(cssGeneratedText)
+}
 
 
 

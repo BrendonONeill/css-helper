@@ -115,11 +115,50 @@
                         <button class="delete-colour-pos delete-button" data-item="border-radius"><img
                                 src="assets/bin.svg" height="20" width="15" alt=""></button>
                         <form>
+                            <div class="border-radius-number-type">
+                                <label for="border-radius-num-type">
+                                    <input type="radio" checked name="border-radius-num-type"
+                                        id="border-radius-num-type" value="px"> px
+                                </label>
+                                <label for="border-radius-num-type">
+                                    <input type="radio" name="border-radius-num-type" id="border-radius-num-type"
+                                        value="rem"> rem
+                                </label>
+                                <label for="border-radius-num-type">
+                                    <input type="radio" name="border-radius-num-type" id="border-radius-num-type"
+                                        value="em"> em
+                                </label>
+                            </div>
                             <label for="" class="slider-number-label"><input class="slider-number" type="number" name=""
                                     id=""> border-radius</label>
-                            <input class="slider" type="range" value="0" min="1" max="100">
-                            <button class=" delete-button delete-border-pos" data-item="border"><img
-                                    src="assets/bin.svg" height="20" width="15" alt=""></button>
+                            <input class="slider" type="range" value="0" min="0" max="500">
+                            <button class="delete-button delete-border-pos" data-item="border"><img src="assets/bin.svg"
+                                    height="20" width="15" alt=""></button>
+                            <div class="separate-border-radius-container">
+                                <label for="">
+                                    <input type="checkbox" name="separate-border-radius"
+                                        id="separate-border-radius-checkbox"> Separate radius
+                                </label>
+                                <div class="separate-radius-options box-invisible" id="separate-radius-options">
+                                    <label for="top-left-radius">
+                                        <input type="number" class="top-left-radius" name="top-padding" id="top-padding"
+                                            value="0"> Top Left
+                                    </label>
+                                    <label for="right-top-radius">
+                                        <input type="number" class="top-right-radius" name="right-padding"
+                                            id="right-padding" value="0"> Top Right
+                                    </label>
+                                    <label for="left-bottom-radius">
+                                        <input type="number" class="bottom-left-radius" name="left-padding"
+                                            id="left-padding" value="0"> Bottom Left
+                                    </label>
+                                    <label for="right-bottom-radius">
+                                        <input type="number" class="bottom-right-radius" name="bottom-padding"
+                                            id="bottom-padding" value="0">
+                                        Bottom Right
+                                    </label>
+                                </div>
+                            </div>
                             <label for="" class="border-number-label">
                                 <input class="border-number" type="number" name="" value="0"> Border size</label>
                             <input class="border-slider" type="range" value="0" min="0" max="100">
@@ -140,9 +179,9 @@
                 </div>
 
                 <div class="options-container">
-                    <span class="options-container-header">
+                    <span class="options-container-header disabled">
                         <h2 class="options-container-h2">Margin</h2>
-                        <button class="options-container-button"></button>
+                        <button class="options-container-button disabled-button" disabled></button>
                     </span>
                     <div class="options-container-grid accordion-close">
 
@@ -286,9 +325,9 @@
                 </div>
 
                 <div class="options-container">
-                    <span class="options-container-header">
+                    <span class="options-container-header disabled">
                         <h2 class="options-container-h2">Flexbox</h2>
-                        <button class="options-container-button"></button>
+                        <button class="options-container-button disabled-button" disabled></button>
                     </span>
                     <div class="options-container-grid accordion-close">
 
