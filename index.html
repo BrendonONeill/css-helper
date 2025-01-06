@@ -7,6 +7,7 @@
     <meta name="description"
         content="This is a site to generate CSS code it is very basic but I plan to add to it with more CSS and animations. This site was created so I generate css faster">
     <link rel="stylesheet" href="css/main.css">
+    <script defer type="module" src="js/main.js"></script>
     <title>CSS Helper</title>
 </head>
 
@@ -179,12 +180,60 @@
                 </div>
 
                 <div class="options-container">
-                    <span class="options-container-header disabled">
+                    <span class="options-container-header">
                         <h2 class="options-container-h2">Margin</h2>
-                        <button class="options-container-button disabled-button" disabled></button>
+                        <button class="options-container-button"></button>
                     </span>
                     <div class="options-container-grid accordion-close">
-
+                        <button class="delete-colour-pos delete-button" data-item="margin"><img src="assets/bin.svg"
+                                height="20" width="15" alt=""></button>
+                        <form>
+                            <div class="padding-type-grid">
+                                <label for="">
+                                    <input type="radio" checked name="margin" id="margin-type" value="px"> px
+                                </label>
+                                <label for="">
+                                    <input type="radio" name="margin-type" id="margin-type" value="rem"> rem
+                                </label>
+                                <label for="">
+                                    <input type="radio" name="margin-type" id="margin-type" value="em"> em
+                                </label>
+                                <label for="">
+                                    <input type="radio" name="margin-type" id="margin-type" value="%"> %
+                                </label>
+                            </div>
+                            <label for="all-margin" class="all-margin-container">
+                                <input type="number" class="all-margin-number" name="all-margin" id="all-margin"
+                                    value="0"> Margin
+                            </label>
+                            <label for="separate-margin" class="separate-margin-container">
+                                <input type="checkbox" class="separate-margin" name="separate-margin"
+                                    id="separate-padding"> Separate Margin
+                            </label>
+                            <div class="separate-margin-options box-invisible">
+                                <label for="top-margin">
+                                    <input type="number" class="top-margin-number" name="top-margin" id="top-margin"
+                                        value="0"> Top
+                                    Margin
+                                </label>
+                                <label for="right-margin">
+                                    <input type="number" class="right-margin-number" name="right-margin"
+                                        id="right-margin" value="0">
+                                    Right
+                                    Margin
+                                </label>
+                                <label for="bottom-margin">
+                                    <input type="number" class="bottom-margin-number" name="bottom-margin"
+                                        id="bottom-margin" value="0">
+                                    Bottom Margin
+                                </label>
+                                <label for="left-margin">
+                                    <input type="number" class="left-margin-number" name="left-margin" id="left-margin"
+                                        value="0"> Left
+                                    Margin
+                                </label>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
@@ -348,8 +397,10 @@
                         <input id="css-name" type="text" name="css-name">
                     </label>
                 </div>
-                <div class="box">
-                    <div class="inner-box"></div>
+                <div class="outer-box">
+                    <div class="box">
+                        <div class="inner-box"></div>
+                    </div>
                 </div>
             </div>
             <div class="css-code">
@@ -374,7 +425,6 @@
                     rel="noopener noreferrer"><img src="assets/LinkedIn.svg" alt="">LinkedIn</a></li>
         </ul>
     </footer>
-    <script src="js/main.js"></script>
 </body>
 
 </html>
