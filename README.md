@@ -12,7 +12,8 @@ This site was created so I generate css faster
 
 ## Working On
 - Refactoring the code to improve performance
-- Cleaning up into functions to prevent DRY code 
+- Cleaning up into functions to prevent DRY code
+- Cleaning up margins and fixing bugs that happen during it. 
 
 ## Known Bugs
 
