@@ -7,6 +7,7 @@ import {allPadding,topPadding,rightPadding,leftPadding,bottomPadding} from "./pa
 import {borderSize, borderSlider, borderColour,topLeftRadiusNumber,topRightRadiusNumber,bottomLeftRadiusNumber,bottomRightRadiusNumber,slider,sliderNum} from "./border.js"
 import {topPosition, rightPosition, bottomPosition, leftPosition} from "./position.js"
 import {widthNum, widthSlider, heightNum, heightSlider} from "./widthAndHeight.js"
+import "./margin.js";
 
 
 // Navigation

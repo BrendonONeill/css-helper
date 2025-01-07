@@ -1,6 +1,7 @@
 "use strict"
-import { updateBox, box } from "./action.js"
+import { updateBox, box, outerBox, boxesValues, calculateHeightAndWidth } from "./action.js"
 import { generateCss, cssGeneratedText, Text, print} from "./generation.js"
+import { allMargin, marginType} from "./margin.js"
 
 
 
@@ -41,14 +42,20 @@ heightSlider.addEventListener("input", (e) => {
 
 function widthAndHeightSetter(value, direction, type)
 {
+
    if(direction === 'height')
    {
+        debugger
        updateBox('height', `${value}${type}`, box)
+       boxesValues.boxHeight = value
+       updateBox('height', `${calculateHeightAndWidth(boxesValues.outerBoxAllPadding,marginType,"Height")}${marginType}`,outerBox)
        generateCss(11, `height: ${value}${type}`)
    }
    else
    {
        updateBox('width', `${value}${type}`, box)
+       boxesValues.boxWidth = value
+       updateBox('width', `${calculateHeightAndWidth(boxesValues.outerBoxAllPadding,marginType,"Width")}${marginType}`,outerBox)
        generateCss(12, `width: ${value}${type}`)
    }
    Text.pasteText = print(cssGeneratedText)

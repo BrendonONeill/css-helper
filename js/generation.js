@@ -5,8 +5,24 @@ export let Text = { pasteText: ""}
 
  
 // Code box Container
-export let cssGeneratedText = ["{", null, null, null, null, null, null, null, null, null, null, null, null, "}"]
+export let cssGeneratedText = ["{", null, null, null, null, null, null, null, null, null, null, null, null, null, "}"]
 export let pasteButton = document.querySelector(".paste")
+
+/*
+1. colour
+2. padding
+3. border-radius
+4. border
+5. box-shadow
+6. position
+7. top
+8. right
+9. bottom
+10. left
+11. height
+12. width
+13. margin
+*/
 
 
 
@@ -18,7 +34,7 @@ export function print(codelines)
     let pasteText = ""
     let fragment = document.createDocumentFragment()
     codelines.map((code,index) => {
-        if(index === 0 || index === 13)
+        if(index === 0 || index === 14)
         {
             text +=  code + " \n"
             pasteText +=  code + " \n"
@@ -47,6 +63,7 @@ export function print(codelines)
 
 export function generateCss(cssPos, cssText)
 {
+    console.log(cssGeneratedText)
     cssGeneratedText[cssPos] = cssText;
 }
 
