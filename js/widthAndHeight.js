@@ -47,14 +47,14 @@ function widthAndHeightSetter(value, direction, type)
    {
         debugger
        updateBox('height', `${value}${type}`, box)
-       boxesValues.boxHeight = value
+       boxesValues.boxHeight = Number(value)
        updateBox('height', `${calculateHeightAndWidth(boxesValues.outerBoxAllPadding,marginType,"Height")}${marginType}`,outerBox)
        generateCss(11, `height: ${value}${type}`)
    }
    else
    {
        updateBox('width', `${value}${type}`, box)
-       boxesValues.boxWidth = value
+       boxesValues.boxWidth = Number(value)
        updateBox('width', `${calculateHeightAndWidth(boxesValues.outerBoxAllPadding,marginType,"Width")}${marginType}`,outerBox)
        generateCss(12, `width: ${value}${type}`)
    }

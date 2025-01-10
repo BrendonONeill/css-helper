@@ -63,7 +63,6 @@ export function print(codelines)
 
 export function generateCss(cssPos, cssText)
 {
-    console.log(cssGeneratedText)
     cssGeneratedText[cssPos] = cssText;
 }
 
@@ -71,7 +70,7 @@ export function generateCss(cssPos, cssText)
 
 pasteButton.addEventListener("click", (e) => {
     e.preventDefault()
-    navigator.clipboard.writeText(pasteText).then(() => {
+    navigator.clipboard.writeText(Text.pasteText).then(() => {
         pasteButton.classList.add("copied")
         pasteButton.textContent = "Copied"
         setTimeout(() => {

@@ -9,15 +9,22 @@ This site was created so I generate css faster
 - Animations
 - CSS specificity calculator
 - Improving performance
+- Generate Tailwind code
 
 ## Working On
 - Refactoring the code to improve performance
 - Cleaning up into functions to prevent DRY code 
 
-## Known Bugs
 
-- On phones/tablets the UI moves when long text is added to the css block section need to sort out a better way to deal with it on phones/tablets.
 
 ## Research
 - For the margin section use padding and resize the outer box to represent the margin spacing will do some testing.
 - Found a weird feature/bug in the browser that if you set absolute by javascript then set any of the directions it starts to act weird with setting the rest with auto causing the other directions not to be set anymore. 
+
+
+### Known Bugs
+
+- Width and Margin have weird effects need to look over both to see where bug is happening. 
+- Add ; to the end of code generation. 
+
+
