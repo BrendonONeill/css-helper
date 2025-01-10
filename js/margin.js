@@ -38,6 +38,11 @@ allMargin.addEventListener("input", (e) => {
 })
 
 
+separateMarginOptions.addEventListener("input", () => {
+    marginSetter(null,[Number(topMargin.value),Number(rightMargin.value),Number(bottomMargin.value),Number(leftMargin.value)])
+})
+
+
 separateMargin.addEventListener("change", () => {
     if(separateMarginOptions.classList.contains("box-invisible"))
     {
@@ -58,16 +63,21 @@ function marginSetter(AM, DM)
     }
     if(AM == null)
     {
+        updateBox('height',`${calculateHeightAndWidth(DM,marginType,'Height',separateMargin.checked)}px`,outerBox)
+        updateBox('width',`${calculateHeightAndWidth(DM,marginType, 'Width', separateMargin.checked)}px`, outerBox)
         updateBox('padding', `${DM[0]}${marginType}  ${DM[1]}${marginType} ${DM[2]}${marginType} ${DM[3]}${marginType}`, outerBox)
         generateCss(13, `margin: ${DM[0]}${marginType}  ${DM[1]}${marginType} ${DM[2]}${marginType} ${DM[3]}${marginType}`)
     } 
     else
     {
-        updateBox('height',`${calculateHeightAndWidth(AM,marginType,'Height')}px`,outerBox)
-        updateBox('width',`${calculateHeightAndWidth(AM,marginType, 'Width')}px`, outerBox)
-        debugger
+        if(AM == "" || AM == 0)
+        {
+            return
+        }
+        updateBox('height',`${calculateHeightAndWidth(AM,marginType,'Height',separateMargin.checked)}px`,outerBox)
+        updateBox('width',`${calculateHeightAndWidth(AM,marginType, 'Width', separateMargin.checked)}px`, outerBox)
         updateBox('padding', `${AM}${marginType}`, outerBox)
-        boxesValues.outerBoxAllPadding = AM
+        boxesValues.outerBoxAllPadding = Number(AM)
         generateCss(13, `margin: ${AM}${marginType}`)
     }
     Text.pasteText = print(cssGeneratedText)

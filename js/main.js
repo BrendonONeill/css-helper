@@ -1,5 +1,5 @@
 "use strict"
-import { box } from "./action.js"
+import { box, outerBox, innerBox } from "./action.js"
 import { cssGeneratedText, Text, print} from "./generation.js"
 import { boxColour, boxColour2, linear1, linear2, gradDeg} from "./colour.js";
 import {shadowX, shadowY, shadowBlur, shadowSpread, shadowColour} from "./boxShadow.js"
@@ -7,7 +7,7 @@ import {allPadding,topPadding,rightPadding,leftPadding,bottomPadding} from "./pa
 import {borderSize, borderSlider, borderColour,topLeftRadiusNumber,topRightRadiusNumber,bottomLeftRadiusNumber,bottomRightRadiusNumber,slider,sliderNum} from "./border.js"
 import {topPosition, rightPosition, bottomPosition, leftPosition} from "./position.js"
 import {widthNum, widthSlider, heightNum, heightSlider} from "./widthAndHeight.js"
-import "./margin.js";
+import {allMargin, topMargin, rightMargin, bottomMargin, leftMargin} from "./margin.js";
 
 
 // Navigation
@@ -120,7 +120,20 @@ function removedCSSCode(type)
             box.style.height = "200px"
             box.style.width = "200px"
             cssGeneratedText[11] = cssGeneratedText[12] = null;
+            outerBox.style.height = box.style.height
+            outerBox.style.width = box.style.width
             break;
+        case 'margin':
+            outerBox.style.padding = ""
+            allMargin.value = 0
+            topMargin.value = 0
+            rightMargin.value = 0
+            bottomMargin.value = 0
+            leftMargin.value = 0
+            outerBox.style.height = box.style.height
+            outerBox.style.width = box.style.width
+            cssGeneratedText[13] = null
+
         default:
             console.log("Oops that shouldn't happen")
     }
