@@ -228,6 +228,8 @@ header {
 
 
 .all-padding-container,
+.all-margin-container,
+.separate-margin-container,
 .separate-padding-container {
     padding: 0.2rem 1rem;
 }
@@ -241,10 +243,15 @@ header {
 
 
 .all-padding-number,
+.all-margin-number,
 .top-padding-number,
 .right-padding-number,
 .bottom-padding-number,
 .left-padding-number,
+.top-margin-number,
+.right-margin-number,
+.bottom-margin-number,
+.left-margin-number,
 .top-position-number,
 .right-position-number,
 .bottom-position-number,
@@ -259,7 +266,8 @@ header {
     border: 2px solid var(--dark-main-colour);
 }
 
-.separate-padding-options {
+.separate-padding-options,
+.separate-margin-options {
     display: flex;
     flex-flow: column;
     padding: 1rem;
@@ -485,8 +493,18 @@ header {
     transition: all 0.3s ease;
 }
 
+.outer-box {
+    position: relative;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
 .colour-inner-box {
     background-color: black;
+}
+
+.colour-outer-box {
+    background-color: pink;
 }
 
 
