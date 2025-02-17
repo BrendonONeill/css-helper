@@ -2,424 +2,406 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="This is a site to generate CSS code it is very basic but I plan to add to it with more CSS and animations. This site was created so I generate css faster">
-    <link rel="stylesheet" href="css/main.css">
-    <script defer type="module" src="js/main.js"></script>
-    <title>CSS Helper</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="This is a site to generate CSS code it is very basic but I plan to add to it with more CSS and animations. This site was created so I generate css faster">
+  <link rel="stylesheet" href="src/style.css">
+  <title>CSS Helper</title>
 </head>
 
 <body>
-    <header>
-        <div class="burger">
-            <div class="nav-burger"><img class="burger-icon" src="assets/bars.svg" alt=""></div>
+  <header>
+    <div class="burger">
+      <div class="nav-burger"><img class="burger-icon" src="assets/bars.svg" alt=""></div>
+    </div>
+    <h1>CSS-HELPER</h1>
+  </header>
+  <main>
+
+    <div class="grid">
+      <div class="options">
+        <div class="options-header">
+          <button><img class="close" src="assets/x.svg" alt=""></button>
         </div>
-        <h1>CSS-HELPER</h1>
-    </header>
-    <main>
+        <div class="options-container">
+          <span class="options-container-header">
+            <h2 class="options-container-h2">Colour</h2>
+            <button class="options-container-button"></button>
+          </span>
+          <div class="options-container-grid grid-colour accordion-close">
+            <button class="delete-colour-pos delete-button" data-item="colour"><img src="assets/bin.svg" height="20"
+                width="15" alt=""></button>
+            <form>
+              <label class="tick-grad-label" for=""><input class="tick-grad" type="checkbox" name="" id="">
+                Gradient</label>
+              <input class="box-colour" type="color" value="#306F9C" name="" id="">
+              <input class="box-colour-2 box-hide" type="color" name="" id="">
+              <label class="grad-deg-label box-hide" for=""><input class="grad-deg " type="number" min="0" max="360"
+                  value="0"> Degree (0 - 360)</label>
+              <input class="linear-1 box-hide" type="range" min="1" max="100">
+              <input class="linear-2 box-hide" type="range" min="1" max="100">
+            </form>
+          </div>
+        </div>
 
-        <div class="grid">
-            <div class="options">
-                <div class="options-header">
-                    <button><img class="close" src="assets/x.svg" alt=""></button>
+        <div class="options-container">
+          <span class="options-container-header">
+            <h2 class="options-container-h2">Padding</h2>
+            <button class="options-container-button"></button>
+          </span>
+          <div class="options-container-grid accordion-close">
+            <button class="delete-colour-pos delete-button" data-item="padding"><img src="assets/bin.svg" height="20"
+                width="15" alt=""></button>
+            <form>
+              <div class="padding-type-grid">
+                <label for="">
+                  <input type="radio" checked name="padding-type" id="padding-type" value="px"> px
+                </label>
+                <label for="">
+                  <input type="radio" name="padding-type" id="padding-type" value="rem"> rem
+                </label>
+                <label for="">
+                  <input type="radio" name="padding-type" id="padding-type" value="em"> em
+                </label>
+              </div>
+              <label for="all-padding" class="all-padding-container">
+                <input type="number" class="all-padding-number" name="all-padding" id="all-padding" value="0"> Padding
+              </label>
+              <label for="separate-padding" class="separate-padding-container">
+                <input type="checkbox" class="separate-padding" name="separate-padding" id="separate-padding"> Separate
+                Padding
+              </label>
+              <div class="separate-padding-options box-invisible">
+                <label for="top-padding">
+                  <input type="number" class="top-padding-number" name="top-padding" id="top-padding" value="0"> Top
+                  Padding
+                </label>
+                <label for="right-padding">
+                  <input type="number" class="right-padding-number" name="right-padding" id="right-padding" value="0">
+                  Right
+                  Padding
+                </label>
+                <label for="bottom-padding">
+                  <input type="number" class="bottom-padding-number" name="bottom-padding" id="bottom-padding"
+                    value="0">
+                  Bottom Padding
+                </label>
+                <label for="left-padding">
+                  <input type="number" class="left-padding-number" name="left-padding" id="left-padding" value="0"> Left
+                  Padding
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="options-container">
+          <span class="options-container-header">
+            <h2 class="options-container-h2">Border</h2>
+            <button class="options-container-button"></button>
+          </span>
+          <div class="options-container-grid grid-border accordion-close">
+            <button class="delete-colour-pos delete-button" data-item="border-radius"><img src="assets/bin.svg"
+                height="20" width="15" alt=""></button>
+            <form>
+              <div class="border-radius-number-type">
+                <label for="border-radius-num-type">
+                  <input type="radio" checked name="border-radius-num-type" id="border-radius-num-type" value="px"> px
+                </label>
+                <label for="border-radius-num-type">
+                  <input type="radio" name="border-radius-num-type" id="border-radius-num-type" value="rem"> rem
+                </label>
+                <label for="border-radius-num-type">
+                  <input type="radio" name="border-radius-num-type" id="border-radius-num-type" value="em"> em
+                </label>
+              </div>
+              <label for="" class="slider-number-label"><input class="slider-number" type="number" name="" id="">
+                border-radius</label>
+              <input class="slider" type="range" value="0" min="0" max="500">
+              <button class="delete-button delete-border-pos" data-item="border"><img src="assets/bin.svg" height="20"
+                  width="15" alt=""></button>
+              <div class="separate-border-radius-container">
+                <label for="">
+                  <input type="checkbox" name="separate-border-radius" id="separate-border-radius-checkbox"> Separate
+                  radius
+                </label>
+                <div class="separate-radius-options box-invisible" id="separate-radius-options">
+                  <label for="top-left-radius">
+                    <input type="number" class="top-left-radius" name="top-padding" id="top-padding" value="0"> Top Left
+                  </label>
+                  <label for="right-top-radius">
+                    <input type="number" class="top-right-radius" name="right-padding" id="right-padding" value="0"> Top
+                    Right
+                  </label>
+                  <label for="left-bottom-radius">
+                    <input type="number" class="bottom-left-radius" name="left-padding" id="left-padding" value="0">
+                    Bottom Left
+                  </label>
+                  <label for="right-bottom-radius">
+                    <input type="number" class="bottom-right-radius" name="bottom-padding" id="bottom-padding"
+                      value="0">
+                    Bottom Right
+                  </label>
                 </div>
-                <div class="options-container">
-                    <span class="options-container-header">
-                        <h2 class="options-container-h2">Colour</h2>
-                        <button class="options-container-button"></button>
-                    </span>
-                    <div class="options-container-grid grid-colour accordion-close">
-                        <button class="delete-colour-pos delete-button" data-item="colour"><img src="assets/bin.svg"
-                                height="20" width="15" alt=""></button>
-                        <form>
-                            <label class="tick-grad-label" for=""><input class="tick-grad" type="checkbox" name=""
-                                    id="">
-                                Gradient</label>
-                            <input class="box-colour" type="color" value="#306F9C" name="" id="">
-                            <input class="box-colour-2 box-hide" type="color" name="" id="">
-                            <label class="grad-deg-label box-hide" for=""><input class="grad-deg " type="number" min="0"
-                                    max="360" value="0"> Degree (0 - 360)</label>
-                            <input class="linear-1 box-hide" type="range" min="1" max="100">
-                            <input class="linear-2 box-hide" type="range" min="1" max="100">
-                        </form>
-                    </div>
+              </div>
+              <label for="" class="border-number-label">
+                <input class="border-number" type="number" name="" value="0"> Border size</label>
+              <input class="border-slider" type="range" value="0" min="0" max="100">
+              <div class="border-radio">
+                <label for=""><input class="border-type" type="radio" checked name="border-type" id="" value="solid">
+                  Solid</label>
+                <label for=""><input class="border-type" type="radio" name="border-type" id="" value="dashed">
+                  Dashed</label>
+                <label for=""><input class="border-type" type="radio" name="border-type" id="" value="dotted">
+                  Dotted</label>
+                <label for=""><input class="border-type" type="radio" name="border-type" id="" value="double">
+                  Double</label>
+              </div>
+              <label class="border-colour-label" for=""><input class="border-colour" type="color" name="" id=""> Border
+                colour</label>
+            </form>
+          </div>
+        </div>
+
+        <div class="options-container">
+          <span class="options-container-header">
+            <h2 class="options-container-h2">Margin</h2>
+            <button class="options-container-button"></button>
+          </span>
+          <div class="options-container-grid accordion-close">
+            <button class="delete-colour-pos delete-button" data-item="margin"><img src="assets/bin.svg" height="20"
+                width="15" alt=""></button>
+            <form>
+              <div class="margin-type-grid">
+                <label for="">
+                  <input type="radio" checked name="margin-type" id="margin-type" value="px"> px
+                </label>
+                <label for="">
+                  <input type="radio" name="margin-type" id="margin-type" value="rem"> rem
+                </label>
+                <label for="">
+                  <input type="radio" name="margin-type" id="margin-type" value="em"> em
+                </label>
+                <label for="">
+                  <input type="radio" name="margin-type" id="margin-type" value="%"> %
+                </label>
+              </div>
+              <label for="all-margin" class="all-margin-container">
+                <input type="number" class="all-margin-number" name="all-margin" id="all-margin" value="0"> Margin
+              </label>
+              <label for="separate-margin" class="separate-margin-container">
+                <input type="checkbox" class="separate-margin" name="separate-margin" id="separate-padding"> Separate
+                Margin
+              </label>
+              <div class="separate-margin-options box-invisible">
+                <label for="top-margin">
+                  <input type="number" class="top-margin-number" name="top-margin" id="top-margin" value="0"> Top
+                  Margin
+                </label>
+                <label for="right-margin">
+                  <input type="number" class="right-margin-number" name="right-margin" id="right-margin" value="0">
+                  Right
+                  Margin
+                </label>
+                <label for="bottom-margin">
+                  <input type="number" class="bottom-margin-number" name="bottom-margin" id="bottom-margin" value="0">
+                  Bottom Margin
+                </label>
+                <label for="left-margin">
+                  <input type="number" class="left-margin-number" name="left-margin" id="left-margin" value="0"> Left
+                  Margin
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="options-container">
+          <span class="options-container-header">
+            <h2 class="options-container-h2">Box-Shadow</h2>
+            <button class="options-container-button"></button>
+          </span>
+          <div class="options-container-grid grid-shadow accordion-close">
+            <button class="delete-colour-pos delete-button" data-item="box-shadow"><img src="assets/bin.svg" height="20"
+                width="15" alt=""></button>
+            <form>
+              <label for="" class="shadow-x-label">
+                <input class="shadow-x" type="range" value="0" min="-100" max="100"> Offset-X</label>
+              <label for="" class="shadow-y-label">
+                <input class="shadow-y" type="range" value="0" min="-100" max="100"> Offset-Y</label>
+              <label for="" class="shadow-blur-label">
+                <input class="shadow-blur" type="range" value="0" min="0" max="100"> Blur</label>
+              <label for="" class="shadow-spread-label">
+                <input class="shadow-spread" type="range" value="0" min="-100" max="100"> Spread</label>
+              <label for="" class="shadow-colour-label">
+                <input class="shadow-colour" type="color" value="#efefef"> Colour</label>
+            </form>
+          </div>
+        </div>
+
+        <div class="options-container">
+          <span class="options-container-header">
+            <h2 class="options-container-h2">Position</h2>
+            <button class="options-container-button"></button>
+          </span>
+          <div class="options-container-grid accordion-close">
+            <button class="delete-colour-pos delete-button" data-item="position"><img src="assets/bin.svg" height="20"
+                width="15" alt=""></button>
+            <form>
+              <label for="position-on" class="position-on">
+                <input type="checkbox" class="position-check" name="position-on" id=""> Position
+              </label>
+              <div class="position-type-container box-invisible">
+                <div class="position-type">
+                  <label for="position-type-value">
+                    <input checked type="radio" name="position-type-value" value="static" id="">
+                    Static
+                  </label>
+                  <label for="position-type-value">
+                    <input type="radio" name="position-type-value" value="relative" id=""> Relative
+                  </label>
+                  <label for="position-type-value">
+                    <input type="radio" name="position-type-value" value="absolute" id=""> Absolute
+                  </label>
+                  <label for="position-type-value">
+                    <input type="radio" name="position-type-value" value="fixed" id=""> Fixed
+                  </label>
+                  <label for="position-type-value">
+                    <input type="radio" name="position-type-value" value="sticky" id=""> Sticky
+                  </label>
                 </div>
-
-                <div class="options-container">
-                    <span class="options-container-header">
-                        <h2 class="options-container-h2">Padding</h2>
-                        <button class="options-container-button"></button>
-                    </span>
-                    <div class="options-container-grid accordion-close">
-                        <button class="delete-colour-pos delete-button" data-item="padding"><img src="assets/bin.svg"
-                                height="20" width="15" alt=""></button>
-                        <form>
-                            <div class="padding-type-grid">
-                                <label for="">
-                                    <input type="radio" checked name="padding-type" id="padding-type" value="px"> px
-                                </label>
-                                <label for="">
-                                    <input type="radio" name="padding-type" id="padding-type" value="rem"> rem
-                                </label>
-                                <label for="">
-                                    <input type="radio" name="padding-type" id="padding-type" value="em"> em
-                                </label>
-                            </div>
-                            <label for="all-padding" class="all-padding-container">
-                                <input type="number" class="all-padding-number" name="all-padding" id="all-padding"
-                                    value="0"> Padding
-                            </label>
-                            <label for="separate-padding" class="separate-padding-container">
-                                <input type="checkbox" class="separate-padding" name="separate-padding"
-                                    id="separate-padding"> Separate Padding
-                            </label>
-                            <div class="separate-padding-options box-invisible">
-                                <label for="top-padding">
-                                    <input type="number" class="top-padding-number" name="top-padding" id="top-padding"
-                                        value="0"> Top
-                                    Padding
-                                </label>
-                                <label for="right-padding">
-                                    <input type="number" class="right-padding-number" name="right-padding"
-                                        id="right-padding" value="0">
-                                    Right
-                                    Padding
-                                </label>
-                                <label for="bottom-padding">
-                                    <input type="number" class="bottom-padding-number" name="bottom-padding"
-                                        id="bottom-padding" value="0">
-                                    Bottom Padding
-                                </label>
-                                <label for="left-padding">
-                                    <input type="number" class="left-padding-number" name="left-padding"
-                                        id="left-padding" value="0"> Left
-                                    Padding
-                                </label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="options-container">
-                    <span class="options-container-header">
-                        <h2 class="options-container-h2">Border</h2>
-                        <button class="options-container-button"></button>
-                    </span>
-                    <div class="options-container-grid grid-border accordion-close">
-                        <button class="delete-colour-pos delete-button" data-item="border-radius"><img
-                                src="assets/bin.svg" height="20" width="15" alt=""></button>
-                        <form>
-                            <div class="border-radius-number-type">
-                                <label for="border-radius-num-type">
-                                    <input type="radio" checked name="border-radius-num-type"
-                                        id="border-radius-num-type" value="px"> px
-                                </label>
-                                <label for="border-radius-num-type">
-                                    <input type="radio" name="border-radius-num-type" id="border-radius-num-type"
-                                        value="rem"> rem
-                                </label>
-                                <label for="border-radius-num-type">
-                                    <input type="radio" name="border-radius-num-type" id="border-radius-num-type"
-                                        value="em"> em
-                                </label>
-                            </div>
-                            <label for="" class="slider-number-label"><input class="slider-number" type="number" name=""
-                                    id=""> border-radius</label>
-                            <input class="slider" type="range" value="0" min="0" max="500">
-                            <button class="delete-button delete-border-pos" data-item="border"><img src="assets/bin.svg"
-                                    height="20" width="15" alt=""></button>
-                            <div class="separate-border-radius-container">
-                                <label for="">
-                                    <input type="checkbox" name="separate-border-radius"
-                                        id="separate-border-radius-checkbox"> Separate radius
-                                </label>
-                                <div class="separate-radius-options box-invisible" id="separate-radius-options">
-                                    <label for="top-left-radius">
-                                        <input type="number" class="top-left-radius" name="top-padding" id="top-padding"
-                                            value="0"> Top Left
-                                    </label>
-                                    <label for="right-top-radius">
-                                        <input type="number" class="top-right-radius" name="right-padding"
-                                            id="right-padding" value="0"> Top Right
-                                    </label>
-                                    <label for="left-bottom-radius">
-                                        <input type="number" class="bottom-left-radius" name="left-padding"
-                                            id="left-padding" value="0"> Bottom Left
-                                    </label>
-                                    <label for="right-bottom-radius">
-                                        <input type="number" class="bottom-right-radius" name="bottom-padding"
-                                            id="bottom-padding" value="0">
-                                        Bottom Right
-                                    </label>
-                                </div>
-                            </div>
-                            <label for="" class="border-number-label">
-                                <input class="border-number" type="number" name="" value="0"> Border size</label>
-                            <input class="border-slider" type="range" value="0" min="0" max="100">
-                            <div class="border-radio">
-                                <label for=""><input class="border-type" type="radio" checked name="border-type" id=""
-                                        value="solid"> Solid</label>
-                                <label for=""><input class="border-type" type="radio" name="border-type" id=""
-                                        value="dashed"> Dashed</label>
-                                <label for=""><input class="border-type" type="radio" name="border-type" id=""
-                                        value="dotted"> Dotted</label>
-                                <label for=""><input class="border-type" type="radio" name="border-type" id=""
-                                        value="double"> Double</label>
-                            </div>
-                            <label class="border-colour-label" for=""><input class="border-colour" type="color" name=""
-                                    id=""> Border colour</label>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="options-container">
-                    <span class="options-container-header">
-                        <h2 class="options-container-h2">Margin</h2>
-                        <button class="options-container-button"></button>
-                    </span>
-                    <div class="options-container-grid accordion-close">
-                        <button class="delete-colour-pos delete-button" data-item="margin"><img src="assets/bin.svg"
-                                height="20" width="15" alt=""></button>
-                        <form>
-                            <div class="margin-type-grid">
-                                <label for="">
-                                    <input type="radio" checked name="margin-type" id="margin-type" value="px"> px
-                                </label>
-                                <label for="">
-                                    <input type="radio" name="margin-type" id="margin-type" value="rem"> rem
-                                </label>
-                                <label for="">
-                                    <input type="radio" name="margin-type" id="margin-type" value="em"> em
-                                </label>
-                                <label for="">
-                                    <input type="radio" name="margin-type" id="margin-type" value="%"> %
-                                </label>
-                            </div>
-                            <label for="all-margin" class="all-margin-container">
-                                <input type="number" class="all-margin-number" name="all-margin" id="all-margin"
-                                    value="0"> Margin
-                            </label>
-                            <label for="separate-margin" class="separate-margin-container">
-                                <input type="checkbox" class="separate-margin" name="separate-margin"
-                                    id="separate-padding"> Separate Margin
-                            </label>
-                            <div class="separate-margin-options box-invisible">
-                                <label for="top-margin">
-                                    <input type="number" class="top-margin-number" name="top-margin" id="top-margin"
-                                        value="0"> Top
-                                    Margin
-                                </label>
-                                <label for="right-margin">
-                                    <input type="number" class="right-margin-number" name="right-margin"
-                                        id="right-margin" value="0">
-                                    Right
-                                    Margin
-                                </label>
-                                <label for="bottom-margin">
-                                    <input type="number" class="bottom-margin-number" name="bottom-margin"
-                                        id="bottom-margin" value="0">
-                                    Bottom Margin
-                                </label>
-                                <label for="left-margin">
-                                    <input type="number" class="left-margin-number" name="left-margin" id="left-margin"
-                                        value="0"> Left
-                                    Margin
-                                </label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="options-container">
-                    <span class="options-container-header">
-                        <h2 class="options-container-h2">Box-Shadow</h2>
-                        <button class="options-container-button"></button>
-                    </span>
-                    <div class="options-container-grid grid-shadow accordion-close">
-                        <button class="delete-colour-pos delete-button" data-item="box-shadow"><img src="assets/bin.svg"
-                                height="20" width="15" alt=""></button>
-                        <form>
-                            <label for="" class="shadow-x-label">
-                                <input class="shadow-x" type="range" value="0" min="-100" max="100"> Offset-X</label>
-                            <label for="" class="shadow-y-label">
-                                <input class="shadow-y" type="range" value="0" min="-100" max="100"> Offset-Y</label>
-                            <label for="" class="shadow-blur-label">
-                                <input class="shadow-blur" type="range" value="0" min="0" max="100"> Blur</label>
-                            <label for="" class="shadow-spread-label">
-                                <input class="shadow-spread" type="range" value="0" min="-100" max="100"> Spread</label>
-                            <label for="" class="shadow-colour-label">
-                                <input class="shadow-colour" type="color" value="#efefef"> Colour</label>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="options-container">
-                    <span class="options-container-header">
-                        <h2 class="options-container-h2">Position</h2>
-                        <button class="options-container-button"></button>
-                    </span>
-                    <div class="options-container-grid accordion-close">
-                        <button class="delete-colour-pos delete-button" data-item="position"><img src="assets/bin.svg"
-                                height="20" width="15" alt=""></button>
-                        <form>
-                            <label for="position-on" class="position-on">
-                                <input type="checkbox" class="position-check" name="position-on" id=""> Position
-                            </label>
-                            <div class="position-type-container box-invisible">
-                                <div class="position-type">
-                                    <label for="position-type-value">
-                                        <input checked type="radio" name="position-type-value" value="static" id="">
-                                        Static
-                                    </label>
-                                    <label for="position-type-value">
-                                        <input type="radio" name="position-type-value" value="relative" id=""> Relative
-                                    </label>
-                                    <label for="position-type-value">
-                                        <input type="radio" name="position-type-value" value="absolute" id=""> Absolute
-                                    </label>
-                                    <label for="position-type-value">
-                                        <input type="radio" name="position-type-value" value="fixed" id=""> Fixed
-                                    </label>
-                                    <label for="position-type-value">
-                                        <input type="radio" name="position-type-value" value="sticky" id=""> Sticky
-                                    </label>
-                                </div>
-                                <div class="position-numbers-container box-invisible">
-                                    <div class="position-type-grid">
-                                        <label for="">
-                                            <input type="radio" checked name="position-numbers-type" id="" value="px">
-                                            px
-                                        </label>
-                                        <label for="">
-                                            <input type="radio" name="position-numbers-type" id="" value="rem"> rem
-                                        </label>
-                                        <label for="">
-                                            <input type="radio" name="position-numbers-type" id="" value="em"> em
-                                        </label>
-                                        <label for="">
-                                            <input type="radio" name="position-numbers-type" value="%" id=""> %
-                                        </label>
-                                    </div>
-                                    <div class="position-numbers">
-                                        <label for="position-top">
-                                            <input type="number" value="-0" class="top-position-number" name="" id="">
-                                            Top
-                                        </label>
-                                        <label for="position-right">
-                                            <input type="number" value="-0" class="right-position-number" name="" id="">
-                                            Right
-                                        </label>
-                                        <label for="position-bottom">
-                                            <input type="number" value="-0" class="bottom-position-number" name=""
-                                                id="">
-                                            Bottom
-                                        </label>
-                                        <label for="position-left">
-                                            <input type="number" value="-0" class="left-position-number" name="" id="">
-                                            Left
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="options-container">
-                    <span class="options-container-header">
-                        <h2 class="options-container-h2">Width/Height</h2>
-                        <button class="options-container-button"></button>
-                    </span>
-                    <div class="options-container-grid accordion-close">
-                        <button class="delete-colour-pos delete-button" data-item="widthAndHeight"><img
-                                src="assets/bin.svg" height="20" width="15" alt=""></button>
-                        <form>
-                            <div class="widthAndHeightType">
-                                <label for="widthAndHeightUnit">
-                                    <input type="radio" checked name="widthAndHeightUnit" value="px" id=""> px
-                                </label>
-                                <label for="widthAndHeightUnit">
-                                    <input type="radio" name="widthAndHeightUnit" value="rem" id=""> rem
-                                </label>
-                                <label for="widthAndHeightUnit">
-                                    <input type="radio" name="widthAndHeightUnit" value="em" id=""> em
-                                </label>
-                                <label for="widthAndHeightUnit">
-                                    <input type="radio" name="widthAndHeightUnit" value="%" id=""> %
-                                </label>
-                            </div>
-                            <div class="widthAndHeightNums">
-                                <label for="widthofBox">
-                                    <input type="number" class="widthNumBox" name="widthofBox" min="0" max="2000"
-                                        value="200"> Width
-                                </label>
-                                <input type="range" name="widthNumBox" class="widthNumSlider" value="200" id="" min="0"
-                                    max="2000">
-                                <label for="heightofBox">
-                                    <input type="number" class="heightNumBox" name="heightofBox" min="0" max="2000"
-                                        value="200"> Height
-                                </label>
-                                <input type="range" name="heightofBoxRange" class="heightNumSlider" value="200" min="0"
-                                    max="2000" id="">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="options-container">
-                    <span class="options-container-header disabled">
-                        <h2 class="options-container-h2">Flexbox</h2>
-                        <button class="options-container-button disabled-button" disabled></button>
-                    </span>
-                    <div class="options-container-grid accordion-close">
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="action">
-                <div class="css-name">
-
-                    <div class="css-name-radio">
-                        <label for="">Class</label>
-                        <input class="" type="radio" name="cl-id" value="class" id="name-class">
-                        <label for="">ID</label>
-                        <input class="" type="radio" name="cl-id" value="id" id="name-id">
-                    </div>
-                    <label for=""> Name:
-                        <input id="css-name" type="text" name="css-name">
+                <div class="position-numbers-container box-invisible">
+                  <div class="position-type-grid">
+                    <label for="">
+                      <input type="radio" checked name="position-numbers-type" id="" value="px">
+                      px
                     </label>
+                    <label for="">
+                      <input type="radio" name="position-numbers-type" id="" value="rem"> rem
+                    </label>
+                    <label for="">
+                      <input type="radio" name="position-numbers-type" id="" value="em"> em
+                    </label>
+                    <label for="">
+                      <input type="radio" name="position-numbers-type" value="%" id=""> %
+                    </label>
+                  </div>
+                  <div class="position-numbers">
+                    <label for="position-top">
+                      <input type="number" value="-0" class="top-position-number" name="" id="">
+                      Top
+                    </label>
+                    <label for="position-right">
+                      <input type="number" value="-0" class="right-position-number" name="" id="">
+                      Right
+                    </label>
+                    <label for="position-bottom">
+                      <input type="number" value="-0" class="bottom-position-number" name="" id="">
+                      Bottom
+                    </label>
+                    <label for="position-left">
+                      <input type="number" value="-0" class="left-position-number" name="" id="">
+                      Left
+                    </label>
+                  </div>
                 </div>
-                <div class="outer-box">
-                    <div class="box">
-                        <div class="inner-box"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="css-code">
-                <button class="paste">Copy</button>
-                <div class="css-code-block">
-                    <p class="line"></p>
-                </div>
-            </div>
+              </div>
+            </form>
+          </div>
         </div>
-    </main>
-    <footer>
-        <div>
-            <p>Brendon O'Neill - 2024</p>
+
+        <div class="options-container">
+          <span class="options-container-header">
+            <h2 class="options-container-h2">Width/Height</h2>
+            <button class="options-container-button"></button>
+          </span>
+          <div class="options-container-grid accordion-close">
+            <button class="delete-colour-pos delete-button" data-item="widthAndHeight"><img src="assets/bin.svg"
+                height="20" width="15" alt=""></button>
+            <form>
+              <div class="widthAndHeightType">
+                <label for="widthAndHeightUnit">
+                  <input type="radio" checked name="widthAndHeightUnit" value="px" id=""> px
+                </label>
+                <label for="widthAndHeightUnit">
+                  <input type="radio" name="widthAndHeightUnit" value="rem" id=""> rem
+                </label>
+                <label for="widthAndHeightUnit">
+                  <input type="radio" name="widthAndHeightUnit" value="em" id=""> em
+                </label>
+                <label for="widthAndHeightUnit">
+                  <input type="radio" name="widthAndHeightUnit" value="%" id=""> %
+                </label>
+              </div>
+              <div class="widthAndHeightNums">
+                <label for="widthofBox">
+                  <input type="number" class="widthNumBox" name="widthofBox" min="0" max="2000" value="200"> Width
+                </label>
+                <input type="range" name="widthNumBox" class="widthNumSlider" value="200" id="" min="0" max="2000">
+                <label for="heightofBox">
+                  <input type="number" class="heightNumBox" name="heightofBox" min="0" max="2000" value="200"> Height
+                </label>
+                <input type="range" name="heightofBoxRange" class="heightNumSlider" value="200" min="0" max="2000"
+                  id="">
+              </div>
+            </form>
+          </div>
         </div>
-        <ul class="footer-list">
-            <li class="footer-list-links"><a href="https://brendon-oneill.ie/" target="_blank"><img
-                        src="assets/folder.svg" alt="">Portfolio</a>
-            </li>
-            <li class="footer-list-links"><a href="https://github.com/BrendonONeill" target="_blank"
-                    rel="noopener noreferrer"><img src="assets/github.svg" alt="">GitHub</a></li>
-            <li class="footer-list-links"><a href="https://www.linkedin.com/in/brendon-o-neill/" target="_blank"
-                    rel="noopener noreferrer"><img src="assets/LinkedIn.svg" alt="">LinkedIn</a></li>
-        </ul>
-    </footer>
+
+        <div class="options-container">
+          <span class="options-container-header disabled">
+            <h2 class="options-container-h2">Flexbox</h2>
+            <button class="options-container-button disabled-button" disabled></button>
+          </span>
+          <div class="options-container-grid accordion-close">
+
+          </div>
+        </div>
+
+      </div>
+      <div class="action">
+        <div class="css-name">
+
+          <div class="css-name-radio">
+            <label for="">Class</label>
+            <input class="" type="radio" name="cl-id" value="class" id="name-class">
+            <label for="">ID</label>
+            <input class="" type="radio" name="cl-id" value="id" id="name-id">
+          </div>
+          <label for=""> Name:
+            <input id="css-name" type="text" name="css-name">
+          </label>
+        </div>
+        <div class="outer-box">
+          <div class="box">
+            <div class="inner-box"></div>
+          </div>
+        </div>
+      </div>
+      <div class="css-code">
+        <button class="paste">Copy</button>
+        <div class="css-code-block">
+          <p class="line"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div>
+      <p>Brendon O'Neill - 2025</p>
+    </div>
+    <ul class="footer-list">
+      <li class="footer-list-links"><a href="https://brendon-oneill.ie/" target="_blank"><img src="assets/folder.svg"
+            alt="">Portfolio</a>
+      </li>
+      <li class="footer-list-links"><a href="https://github.com/BrendonONeill" target="_blank"
+          rel="noopener noreferrer"><img src="assets/github.svg" alt="">GitHub</a></li>
+      <li class="footer-list-links"><a href="https://www.linkedin.com/in/brendon-o-neill/" target="_blank"
+          rel="noopener noreferrer"><img src="assets/LinkedIn.svg" alt="">LinkedIn</a></li>
+    </ul>
+  </footer>
+  <script defer type="module" src="/src/js/main.js"></script>
 </body>
 
 </html>
