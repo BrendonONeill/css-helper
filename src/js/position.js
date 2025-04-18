@@ -56,7 +56,7 @@ positionTypeOptions.addEventListener("input", (e) => {
 
 function positionSetter(numPos, type, postype)
 {
-    cssGeneratedText[6] = `position: ${postype}`
+    cssGeneratedText[6] = `position: ${postype};`
     for(let i = 0; i <= 3; i++)
     {
         if(Object.is(Number(numPos[i]),-0))
@@ -66,7 +66,7 @@ function positionSetter(numPos, type, postype)
         else
         {
             updateBox(positionDirection(i), `${numPos[i]}${type}`,outerBox)
-            generateCss((i + 7), `${positionDirection(i)}: ${numPos[i]}${type}`)
+            generateCss((i + 7), `${positionDirection(i)}: ${numPos[i]}${type};`)
         }
     }
     Text.pasteText = print(cssGeneratedText)

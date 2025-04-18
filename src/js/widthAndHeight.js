@@ -42,21 +42,19 @@ heightSlider.addEventListener("input", (e) => {
 
 function widthAndHeightSetter(value, direction, type)
 {
-
    if(direction === 'height')
    {
-        debugger
        updateBox('height', `${value}${type}`, box)
        boxesValues.boxHeight = Number(value)
        updateBox('height', `${calculateHeightAndWidth(boxesValues.outerBoxAllPadding,marginType,"Height")}${marginType}`,outerBox)
-       generateCss(11, `height: ${value}${type}`)
+       generateCss(11, `height: ${value}${type};`)
    }
    else
    {
        updateBox('width', `${value}${type}`, box)
        boxesValues.boxWidth = Number(value)
        updateBox('width', `${calculateHeightAndWidth(boxesValues.outerBoxAllPadding,marginType,"Width")}${marginType}`,outerBox)
-       generateCss(12, `width: ${value}${type}`)
+       generateCss(12, `width: ${value}${type};`)
    }
    Text.pasteText = print(cssGeneratedText)
 }

@@ -47,12 +47,12 @@ function paddingSetter(AP,DP)
         if(AP == null)
         {
             updateBox('padding', `${DP[0]}${paddingType}  ${DP[1]}${paddingType} ${DP[2]}${paddingType} ${DP[3]}${paddingType}`, box)
-            generateCss(2, `padding: ${DP[0]}${paddingType}  ${DP[1]}${paddingType} ${DP[2]}${paddingType} ${DP[3]}${paddingType}`)
+            generateCss(2, `padding: ${DP[0]}${paddingType}  ${DP[1]}${paddingType} ${DP[2]}${paddingType} ${DP[3]}${paddingType};`)
         } 
         else
         {
             updateBox('padding', `${AP}${paddingType}`, box)
-            generateCss(2, `padding: ${AP}${paddingType}`)
+            generateCss(2, `padding: ${AP}${paddingType};`)
         }
         Text.pasteText = print(cssGeneratedText)
 }

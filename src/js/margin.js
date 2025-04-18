@@ -66,7 +66,7 @@ function marginSetter(AM, DM)
         updateBox('height',`${calculateHeightAndWidth(DM,marginType,'Height',separateMargin.checked)}px`,outerBox)
         updateBox('width',`${calculateHeightAndWidth(DM,marginType, 'Width', separateMargin.checked)}px`, outerBox)
         updateBox('padding', `${DM[0]}${marginType}  ${DM[1]}${marginType} ${DM[2]}${marginType} ${DM[3]}${marginType}`, outerBox)
-        generateCss(13, `margin: ${DM[0]}${marginType}  ${DM[1]}${marginType} ${DM[2]}${marginType} ${DM[3]}${marginType}`)
+        generateCss(13, `margin: ${DM[0]}${marginType}  ${DM[1]}${marginType} ${DM[2]}${marginType} ${DM[3]}${marginType};`)
     } 
     else
     {
@@ -78,7 +78,7 @@ function marginSetter(AM, DM)
         updateBox('width',`${calculateHeightAndWidth(AM,marginType, 'Width', separateMargin.checked)}px`, outerBox)
         updateBox('padding', `${AM}${marginType}`, outerBox)
         boxesValues.outerBoxAllPadding = Number(AM)
-        generateCss(13, `margin: ${AM}${marginType}`)
+        generateCss(13, `margin: ${AM}${marginType};`)
     }
     Text.pasteText = print(cssGeneratedText)
 }
