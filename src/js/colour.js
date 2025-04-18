@@ -40,7 +40,7 @@ boxColour.addEventListener("input", (e) => {
     else
     {
         updateBox('background', e.target.value, box)
-        generateCss(1,  `background: ${e.target.value}`)
+        generateCss(1,  `background: ${e.target.value};`)
     }
     Text.pasteText = print(cssGeneratedText)
 })
