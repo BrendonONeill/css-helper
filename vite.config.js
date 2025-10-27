@@ -2,5 +2,5 @@ import { defineConfig } from "vite";
 
 
 export default defineConfig({
-    base: "css-helper"
+    base: "/css-helper"
 })

@@ -661,9 +661,7 @@ form {
   }
 }
 
-
-
-@media only screen and (min-width: 1800px) {
+@media only screen and (min-width: 1400px) {
 
 
   .options-container-h2 {
@@ -699,6 +697,28 @@ form {
     overflow-x: hidden;
   }
 
+  .options-container-button
+  {
+    flex-basis: 20%;
+  }
+  .options-header {
+    display: none;
+  }
+
+  .footer-list {
+    flex-flow: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+}
+
+@media only screen and (min-width: 1800px) {
+
+
+  .options-container-h2 {
+    text-align: left;
+  }
 
   .options-header {
     display: none;
@@ -707,6 +727,11 @@ form {
   .footer-list {
     flex-flow: row;
     align-items: center;
+  }
+
+  .options-container-button
+  {
+    flex-basis: 15%;
   }
 
 }
