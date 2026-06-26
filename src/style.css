@@ -10,11 +10,11 @@
 }
 
 :root {
-  --dark-main-colour: #0463ca;
-  --darker-main-colour: #022D5B;
-  --dark-main-active-colour: #023E7D;
-  --main-colour: #0487e2;
-  --grey-main: #5F839E;
+  --dark-main-colour: #006397;
+  --darker-main-colour: #0A3146;
+  --dark-main-active-colour: #115174;
+  --main-colour: #00A6FD;
+  --grey-main: hsl(201,25%,37%);
 }
 
 body {
@@ -133,7 +133,7 @@ header {
   width: 100%;
   background-color: white;
   border-radius: 0 0 5px 5px;
-  transition: all 0.4s;
+  transition: all 0.4s ease-in-out;
   position: relative;
 }
 
@@ -175,8 +175,8 @@ header {
   grid-row: 1/2;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
+  align-items: baseline;
+  column-gap: 10px;
 }
 
 .box-colour {
@@ -238,6 +238,7 @@ header {
   display: flex;
   gap: 1rem;
   padding: 0.4rem 1rem;
+  align-items: baseline;
 }
 
 
@@ -264,6 +265,12 @@ header {
 .top-right-radius {
   width: 40px;
   border: 2px solid var(--dark-main-colour);
+}
+
+.margin-type-grid
+{
+ width: 70%;
+ padding-left: 1rem;
 }
 
 .separate-padding-options,
@@ -397,8 +404,13 @@ header {
 
 .shadow-colour-label {
   grid-row: 5/6;
+  padding-top: 0.5rem;
 }
 
+.position-type-container
+{
+  padding-bottom: 0.6rem;
+}
 
 .position-type {
   display: flex;
@@ -527,7 +539,7 @@ header {
   position: absolute;
   bottom: 25px;
   right: 25px;
-  background-color: #57cc99;
+  background-color: #00FFD9;
   z-index: 5;
   border-radius: 5px;
   border: 2px solid #10451d;
@@ -652,6 +664,11 @@ form {
   .options {
     width: 38%;
   }
+
+  .options-container-button
+  {
+    flex-basis: 13%;
+  }
 }
 
 @media only screen and (min-width: 900px) {
@@ -712,6 +729,28 @@ form {
   }
 
 }
+
+@media only screen and (min-width: 1500px) and (max-width: 1700px) {
+
+  .shadow-x-label,.shadow-y-label,.shadow-blur-label,.shadow-spread-label
+  {
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .grid {
+    grid-template-columns: 3.1fr 12fr;
+  }
+
+  .options-container-button
+  {
+    flex-basis: 15%;
+  }
+
+}
+
 
 @media only screen and (min-width: 1800px) {
 
